@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Savishkaara 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS (for utility classes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- CUSTOM FONTS (replace with your fonts) -->
+  <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=YourFontFamily:wght@400;700&display=swap" rel="stylesheet" />
+  -->
+
+  <!-- CUSTOM CSS -->
+  <style>
+    :root {
+      --main-font: 'YourFontFamily', sans-serif; /* Replace with your actual font */
+      --accent-color: #FBBF24; /* Replace with your exact accent color */
+      --text-color: #ffffff;
+      --bg-color: #000000;
+      --secondary-text: #999999;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--main-font);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    .custom-nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem;
+    }
+
+    /* HERO / LANDING SECTION */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: #000000;
+      opacity: 0.5;
+      z-index: 2;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-title {
+      font-size: 6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.8);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @media (min-width: 768px) {
+      .hero-title { font-size: 8rem; }
+    }
+    .hero-subtitle {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    @media (min-width: 768px) {
+      .hero-subtitle { font-size: 4rem; }
+    }
+    .prompt-bubble {
+      margin-top: 1.5rem;
+      background-color: #2d2d2d;
+      color: #ddd;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      display: inline-block;
+    }
+
+    /* TECHFEST GRID SECTION */
+    .grid-section {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .grid-section > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .grid-section .bg-red { background-color: #a00; }
+    .grid-section .logo img { height: 80px; }
+
+    /* SECOND GRID SECTION */
+    /* Reusing .grid-section for the second row */
+    
+
+        /* Example Card Section */
+        .cards-section {
+      position: relative;
+      padding: 4rem 1rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .cards-section {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      position: relative;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      background-color: #2d2d2d;
+      cursor: pointer;
+    }
+    .card-img {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .card:hover .card-img {
+      opacity: 1;
+    }
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 1.5rem;
+    }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .card-description {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* FOOTER */
+    .custom-footer {
+      position: relative;
+      z-index: 20;
+      padding: 2rem;
+      border-top: 1px solid #333;
+      text-align: center;
+      color: #aaa;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .footer-links a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--accent-color); }
+
+    /* "THE FLAME STILL BURNS" SECTION */
+    .flame-section {
+      position: relative;
+      width: 100%;
+      height: 80vh;
+      overflow: hidden;
+      text-align: center;
+    }
+    .flame-section img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+    .flame-section .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .flame-section .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 1rem;
+    }
+    .flame-section h2 {
+      font-size: 5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .text-flame {
+      color: #f3d186;
+      text-shadow: 0 0 10px rgba(243,209,134,0.8), 0 0 20px rgba(243,209,134,0.6);
+    }
+    .flame-section a {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+    .flame-section a:hover { color: #fff; }
+
+ 
+
+    #prev { left: -80px; }
+    #next { right: -80px; }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 3rem; }
+      .hero-subtitle { font-size: 2rem; }
+      .grid-section {
+          /* For non-logo sections, show two columns */
+          grid-template-columns: repeat(2, 1fr);
+      }
+      /* Override the logos section to be a horizontal carousel */
+      .logo-carousel {
+          display: flex !important;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 10px;
+      }
+      .logo-carousel .logo-container {
+          flex: 0 0 auto;
+          scroll-snap-align: center;
+          padding: 1rem;
+      }
+      .logo-carousel .logo-container img {
+          max-width: 100px;
+          height: auto;
+      }
+    }
+    @media (max-width: 480px) {
+      .grid-section {
+          grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Apply fade-in animation */
+  .animated-grid > div {
+    animation: fadeInUp 0.8s ease-in-out;
+  }
+
+  /* Logo hover effect */
+  .logo-container img {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .logo-container:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Delay animations for a staggered effect */
+  .animated-grid > div:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .animated-grid > div:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  .animated-grid > div:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+    
+ /* Fade-in animation on load */
+ @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hover effect - lift & shadow */
+  @keyframes hoverLift {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-5px);
+    }
+  }
+
+  /* Image zoom-in effect */
+  @keyframes zoomIn {
+    from {
+      background-size: 100%;
+    }
+    to {
+      background-size: 110%;
+    }
+  }
+
+  /* Card section styling */
+  .cards-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 0;
+  }
+
+  /* Card styling */
+  .card {
+    width: 280px;
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  /* Hover Effect */
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Card Image */
+  .card-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    transition: background-size 0.5s ease-in-out;
+  }
+
+  /* Image Zoom Effect */
+  .card:hover .card-img {
+    animation: zoomIn 0.5s forwards;
+  }
+
+  /* Card Content */
+  .card-content {
+    padding: 15px;
+    color: white;
+    text-align: center;
+  }
+
+  /* Title */
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  /* Description */
+  .card-description {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+
+
+
+  .logo-card {
+    width: 180px;  /* Increase card size */
+    height: 180px;
+    background-color: #111; /* Keep a dark theme */
+    border-radius: 50%; /* Make it round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-card:hover {
+    transform: scale(1.1); /* Slight hover effect */
+}
+
+.logo-card img {
+    max-width: 80%;  /* Make the logo fit within the card */
+    max-height: 80%;
+    object-fit: contain;
+}
+
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- HERO / LANDING SECTION -->
+  <header class="hero-section">
+    <div class="hero-bg" style="background-image: url('assests/theyyambg.jpg');"></div>
+    <div class="hero-overlay"></div>
+   
+    <div class="hero-content">
+      <h1 class="hero-title">SAVISHKAARA</h1>
+      <h2 class="hero-subtitle">2025</h2>
+      <div class="prompt-bubble"></div>
+    </div>
+  </header>
+
+<!-- TECHFEST LOGOS IN A SINGLE ROW WITH CARD STYLE -->
+<section class="flex flex-wrap justify-center items-center gap-6 bg-black py-6">
+    <div class="logo-card">
+        <img 
+    src="assests/2024/savishkaara.PNG" 
+    srcset="assests/2024/savishkaara@2x.png 2x, assests/2024/savishkaara@3x.png 3x" 
+    alt="Savishkaara logo" 
+/>
+    </div>
+    <div class="logo-card">
+        <img src="assests/amrita-vishwa-vidyapeetham-university-logo-white-version.svg" alt="Amrita logo" />
+    </div>
+    <div class="logo-card">
+        <img src="assests/2024/iedcbgremoved-whiteText.png" alt="IEDC logo" />
+    </div>
+    <div class="logo-card">
+        <img src="assests/2024/IIC/IIC-removebg-preview-Increasedcolor.png" alt="IIC Logo" />
+    </div>
+    <div class="logo-card">
+        <img src="assests/2024/sicwhite.png" alt="SIC Logo" />
+    </div>
+    <div class="logo-card">
+        <img src="assests/2024/CSI.PNG" alt="CSI Logo" />
+    </div>
+</section>
+
+  
+
+  <!-- "THE FLAME STILL BURNS" SECTION -->
+  <section class="flame-section">
+     <img src="assests/fire2.jpg" alt="A performer" /> 
+    <div class="overlay"></div>
+    <div class="content">
+      <h2 class="text-5xl md:text-7xl font-bold leading-tight tracking-wide">
+        THE <span class="text-flame">FLAME</span> <br class="hidden md:block" /> STILL BURNS
+      </h2>
+      <a href="about.html" class="mt-6 inline-flex items-center text-lg font-semibold text-gray-200 hover:text-white transition">
+        Learn more about the legacy
+        <span class="ml-2 text-xl">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+
+
+
+  <!-- ===================== EXAMPLE CARD SECTION ===================== -->
+  <section>
+  <section class="cards-section">
+ 
+    <!-- Card 1 -->
+    <div class="card">
+      <div 
+        class="card-img"
+        style="background-image: url('YOUR_IMAGE_URL_1');"
+      ></div>
+      <div class="card-content">
+        <h4 class="card-title">01. Inception Of Sympo</h4>
+        <p class="card-description">Inception of Sympo is where innovation meets hands-on learning through workshops and expert-led training. Dive in, explore, and level up your skills!</p>
+      </div>
+    </div>
+    <!-- Card 2 -->
+    <div class="card">
+      <div 
+        class="card-img"
+        style="background-image: url('YOUR_IMAGE_URL_2');"
+      ></div>
+      <div class="card-content">
+        <h4 class="card-title">02.Technical Events </h4>
+        <p class="card-description">Technical Events is a powerhouse of innovation, featuring competitions, challenges, and tech-driven activities. Get ready to test your skills, think big, and push boundaries!</p>
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="card">
+      <div 
+        class="card-img"
+        style="background-image: url('YOUR_IMAGE_URL_3');"
+      ></div>
+      <div class="card-content">
+        <h4 class="card-title">03. Technical Expo</h4>
+        <p class="card-description">Technical Expo is a showcase of cutting-edge projects, groundbreaking innovations, and futuristic ideas. Explore, experience, and get inspired by the tech of tomorrow!</p>
+      </div>
+    </div>
+     <!-- Card 4 -->
+     <div class="card">
+        <div 
+          class="card-img"
+          style="background-image: url('YOUR_IMAGE_URL_1');"
+        ></div>
+        <div class="card-content">
+          <h4 class="card-title">04. Leisure Activity</h4>
+          <p class="card-description">A thrilling hub of non-technical games packed with excitement, challenges, and pure entertainment. Play, compete, and unwind!</p>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="card">
+        <div 
+          class="card-img"
+          style="background-image: url('YOUR_IMAGE_URL_2');"
+        ></div>
+        <div class="card-content">
+          <h4 class="card-title">05. Talent Time</h4>
+          <p class="card-description">A stage where creativity shines and passions come to life! Show off your skills, mesmerize the crowd, and make your moment unforgettable.</p>
+        </div>
+      </div>
+      
+      </div>
+  </section>
+
+
+
+  <!--FAQ-->
+  <div class="bg-black text-white flex justify-center items-center py-12">
+    <div class="w-full max-w-7xl px-8 lg:px-24"> <!-- Extended max-width & more padding -->
+        <h1 class="text-6xl font-bold text-left text-neutral-200 mb-10 border-b-4 border-orange-500 pb-2">
+            FAQs
+        </h1>
+
+        <div class="space-y-8">
+            <!-- FAQ Item -->
+            <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
+                <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(1)">
+                    <span>When is Savishkaara'25 conducted?</span>
+                    <svg id="icon-1" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </button>
+                <p id="answer-1" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+                    Savishkaara'25 will be held on April 10 and 11.
+                </p>
+            </div>
+
+            <!-- FAQ Item -->
+            <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
+                <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(2)">
+                    <span>Where is Savishkaara'25 held?</span>
+                    <svg id="icon-2" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </button>
+                <p id="answer-2" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+                    Savishkaara'25 will be held at Amrita, Kochi.
+                </p>
+            </div>
+
+            <!-- FAQ Item -->
+            <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
+                <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(3)">
+                    <span>Who do I contact for enquiries?</span>
+                    <svg id="icon-3" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </button>
+                <p id="answer-3" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+                    For enquiries, please contact the event team.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- FOOTER -->
+  <footer class="custom-footer">
+    <p>&copy; 2025 Saavishkaara. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    // Cycle through hero title texts every second
+    const titles = ["SAVISHKAARA", "सविष्कारा", "സവിഷ്കാര", "சவிஷ்கார"];
+    let index = 0;
+    const heroTitle = document.querySelector('.hero-title');
+    setInterval(() => {
+      heroTitle.textContent = titles[index];
+      index = (index + 1) % titles.length;
+    }, 1000);
+
+
+
+    function toggleFAQ(id) {
+            let answer = document.getElementById(`answer-${id}`);
+            let icon = document.getElementById(`icon-${id}`);
+
+            if (answer.classList.contains("hidden")) {
+                answer.classList.remove("hidden");
+                icon.textContent = "⬆️";
+            } else {
+                answer.classList.add("hidden");
+                icon.textContent = "⬇️";
+            }
+        }
+    
+  </script>
+</body>
+</html>
