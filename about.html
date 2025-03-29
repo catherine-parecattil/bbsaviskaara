@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Body Styling */
@@ -23,18 +23,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         /* Animation Keyframes */
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes scaleUp {
@@ -46,14 +41,14 @@
         .legacy-section {
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             gap: 30px;
-            padding: 50px;
+            padding: 20px;
             max-width: 1200px;
             width: 100%;
-            opacity: 0;
-            animation: fadeIn 1s ease-in-out forwards;
+            transform: translateY(-150px); /* Moves content upwards */
+            animation: fadeInUp 1s ease-in-out forwards;
         }
 
         /* Content Styling */
@@ -61,41 +56,33 @@
             flex: 1;
             max-width: 600px;
             padding: 20px;
-            opacity: 0;
-            animation: slideIn 1.2s ease-in-out forwards;
         }
 
-        /* Title */
-        /* Title Styling */
         .title {
             font-size: 4rem;
             font-weight: bold;
             text-transform: uppercase;
-            background: linear-gradient(to right, red, orange, yellow);
+            background: linear-gradient(to right, blue, violet, #FFA500, #FFD700);
             background-clip: text;
-            -webkit-background-clip: text; /* For Webkit browsers (Chrome, Safari) */
-            -moz-background-clip: text; /* For Mozilla Firefox */
-            -o-background-clip: text; /* For Opera */
-            -ms-background-clip: text; /* For Internet Explorer/Edge */
-            -webkit-text-fill-color: transparent; /* Makes text transparent to show gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
             display: inline-block;
-            transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
         }
 
-        /* Hover Effect - Pop & Glow */
-        .title:hover {
-            transform: scale(1.1);
-            text-shadow: 0 0 10px rgba(255, 69, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.8);
-        }
-
-
-        /* Paragraph Styling */
-        p {
+        /* Paragraph Styling with Line-by-Line Animation */
+        .content p {
             font-size: 1.2rem;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-in-out forwards;
         }
+
+        .content p:nth-of-type(1) { animation-delay: 0.3s; }
+        .content p:nth-of-type(2) { animation-delay: 0.6s; }
+        .content p:nth-of-type(3) { animation-delay: 0.9s; }
 
         /* Image Styling */
         .highlight-image {
@@ -103,7 +90,7 @@
             display: flex;
             justify-content: center;
             opacity: 0;
-            animation: scaleUp 1.5s ease-in-out forwards;
+            animation: scaleUp 1.5s ease-in-out forwards 1s;
         }
 
         .highlight-image img {
@@ -115,10 +102,27 @@
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
 
-        /* Hover Effect */
-        .highlight-image img:hover {
-            opacity: 1;
-            transform: scale(1.05);
+        /* Back Button Styling */
+        .back-button {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            padding: 10px 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background: none;
+            border: 2px solid;
+            border-image-source: linear-gradient(to right, blue, violet, #FFA500, #FFD700);
+            border-image-slice: 1;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Responsive Design */
@@ -146,9 +150,6 @@
                 width: 80%;
             }
         }
-
-
-        
     </style>
 </head>
 <body>
@@ -157,28 +158,17 @@
         <div class="content">
             <h1 class="title">SAVISHKAARA</h1>
 
-            <p>
-                <strong>Savishkaara</strong> is not just a tech fest—it's a movement of innovation, creativity, and limitless possibilities. 
-                Organized by the bright minds at Amrita Vishwa Vidyapeetham, it serves as a hub where students, entrepreneurs, and tech leaders unite 
-                to explore the latest advancements in technology.
-            </p>
-
-            <p>
-                From cutting-edge coding competitions and AI-powered hackathons to insightful tech talks and innovation showcases, 
-                Savishkaara is where ideas come to life. The event fosters collaboration, problem-solving, and futuristic thinking, 
-                shaping the next generation of tech pioneers.
-            </p>
-
-            <p>
-                The legacy of Savishkaara continues to grow, inspiring young minds to push the boundaries of technology. 
-                Join us and be a part of this incredible journey!
-            </p>
+            <p><strong>Savishkaara</strong> is not just a tech fest—it's a movement of innovation, creativity, and limitless possibilities.</p>
+            <p>Organized by the bright minds at Amrita Vishwa Vidyapeetham, it serves as a hub where students, entrepreneurs, and tech leaders unite to explore the latest advancements in technology.</p>
+            <p>From cutting-edge coding competitions and AI-powered hackathons to insightful tech talks and innovation showcases, Savishkaara is where ideas come to life.</p>
         </div>
 
         <div class="highlight-image">
-            <img src="assets/h.jpg" alt="Savishkaara Logo">
+            <img src="assets/fantasy-bird.avif" alt="Savishkaara Logo">
         </div>
     </section>
+
+    <a href="index.html" class="back-button">Back to Home</a>
 
 </body>
 </html>

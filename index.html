@@ -9,713 +9,244 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- CUSTOM FONTS (replace with your fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=YourFontFamily:wght@400;700&display=swap" rel="stylesheet" />
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=YourFontFamily:wght@400;700&display=swap" rel="stylesheet" />
- 
-
-  <!-- CUSTOM CSS -->
-  <style>
-    :root {
-      --main-font: 'YourFontFamily', sans-serif; /* Replace with your actual font */
-      --accent-color: #FBBF24; /* Replace with your exact accent color */
-      --text-color: #ffffff;
-      --bg-color: #000000;
-      --secondary-text: #999999;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--main-font);
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      overflow-x: hidden;
-    }
-
-    /* Navigation Bar */
-    .custom-nav {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem;
-    }
-
-    /* HERO / LANDING SECTION */
-    .hero-section {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background-color: #000000;
-      opacity: 0.5;
-      z-index: 2;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 3;
-      padding: 1rem;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .hero-title {
-      font-size: 6rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 1;
-      margin: 0;
-      color: rgba(255, 255, 255, 0.8);
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @media (min-width: 768px) {
-      .hero-title { font-size: 8rem; }
-    }
-    .hero-subtitle {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-top: 1rem;
-      color: rgba(255, 255, 255, 0.8);
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    @media (min-width: 768px) {
-      .hero-subtitle { font-size: 4rem; }
-    }
-    .prompt-bubble {
-      margin-top: 1.5rem;
-      background-color: #2d2d2d;
-      color: #ddd;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      display: inline-block;
-    }
-
-    /* TECHFEST GRID SECTION */
-    .grid-section {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
-    .grid-section > div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .grid-section .bg-red { background-color: #a00; }
-    .grid-section .logo img { height: 80px; }
-
-    /* SECOND GRID SECTION */
-    /* Reusing .grid-section for the second row */
-    
-
-        /* Example Card Section */
-        .cards-section {
-      position: relative;
-      padding: 4rem 1rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    @media (min-width: 768px) {
-      .cards-section {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .card {
-      position: relative;
-      border-radius: 0.5rem;
-      overflow: hidden;
-      background-color: #2d2d2d;
-      cursor: pointer;
-    }
-    .card-img {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-    .card:hover .card-img {
-      opacity: 1;
-    }
-    .card-content {
-      position: relative;
-      z-index: 2;
-      padding: 1.5rem;
-    }
-    .card-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .card-description {
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    /* FOOTER */
-    .custom-footer {
-      position: relative;
-      z-index: 20;
-      padding: 2rem;
-      border-top: 1px solid #333;
-      text-align: center;
-      color: #aaa;
-    }
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-    .footer-links a {
-      color: #aaa;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-links a:hover { color: var(--accent-color); }
-
-    /* "THE FLAME STILL BURNS" SECTION */
-    .flame-section {
-      position: relative;
-      width: 100%;
-      height: 80vh;
-      overflow: hidden;
-      text-align: center;
-    }
-    .flame-section img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.7;
-    }
-    .flame-section .overlay {
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0,0,0,0.4);
-    }
-    .flame-section .content {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      padding: 1rem;
-    }
-    .flame-section h2 {
-      font-size: 5rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .text-flame {
-      color: #f3d186;
-      text-shadow: 0 0 10px rgba(243,209,134,0.8), 0 0 20px rgba(243,209,134,0.6);
-    }
-    .flame-section a {
-      margin-top: 1.5rem;
-      display: inline-flex;
-      align-items: center;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #ccc;
-      transition: color 0.3s;
-    }
-    .flame-section a:hover { color: #fff; }
-
- 
-
-    #prev { left: -80px; }
-    #next { right: -80px; }
-
-    /* MEDIA QUERIES */
-    @media (max-width: 768px) {
-      .hero-title { font-size: 3rem; }
-      .hero-subtitle { font-size: 2rem; }
-      .grid-section {
-          /* For non-logo sections, show two columns */
-          grid-template-columns: repeat(2, 1fr);
-      }
-      /* Override the logos section to be a horizontal carousel */
-      .logo-carousel {
-          display: flex !important;
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          gap: 10px;
-      }
-      .logo-carousel .logo-container {
-          flex: 0 0 auto;
-          scroll-snap-align: center;
-          padding: 1rem;
-      }
-      .logo-carousel .logo-container img {
-          max-width: 100px;
-          height: auto;
-      }
-    }
-    @media (max-width: 480px) {
-      .grid-section {
-          grid-template-columns: repeat(1, 1fr);
-      }
-    }
-
-
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes scaleUp {
-    from {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  /* Apply fade-in animation */
-  .animated-grid > div {
-    animation: fadeInUp 0.8s ease-in-out;
-  }
-
-  /* Logo hover effect */
-  .logo-container img {
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .logo-container:hover img {
-    transform: scale(1.1);
-  }
-
-  /* Delay animations for a staggered effect */
-  .animated-grid > div:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-  .animated-grid > div:nth-child(2) {
-    animation-delay: 0.4s;
-  }
-  .animated-grid > div:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-    
- /* Fade-in animation on load */
- @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Hover effect - lift & shadow */
-  @keyframes hoverLift {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-5px);
-    }
-  }
-
-  /* Image zoom-in effect */
-  @keyframes zoomIn {
-    from {
-      background-size: 100%;
-    }
-    to {
-      background-size: 110%;
-    }
-  }
-
-  /* Card section styling */
-  .cards-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px 0;
-  }
-
-  /* Card styling */
-  .card {
-    width: 280px;
-    background: #1a1a1a;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 0.8s ease-out;
-  }
-
-  /* Hover Effect */
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  /* Card Image */
-  .card-img {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    transition: background-size 0.5s ease-in-out;
-  }
-
-  /* Image Zoom Effect */
-  .card:hover .card-img {
-    animation: zoomIn 0.5s forwards;
-  }
-
-  /* Card Content */
-  .card-content {
-    padding: 15px;
-    color: white;
-    text-align: center;
-  }
-
-  /* Title */
-  .card-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  /* Description */
-  .card-description {
-    font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.8;
-  }
-
-
-
-  .logo-card {
-    width: 180px;  /* Increase card size */
-    height: 180px;
-    background-color: #111; /* Keep a dark theme */
-    border-radius: 50%; /* Make it round */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-.logo-card:hover {
-    transform: scale(1.1); /* Slight hover effect */
-}
-
-.logo-card img {
-    max-width: 80%;  /* Make the logo fit within the card */
-    max-height: 80%;
-    object-fit: contain;
-}
-
-
-
-
-.carousel-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .carousel-row {
-            display: flex;
-            gap: 20px;
-        }
-        .carousel-container {
-            overflow: hidden;
-            width: 100%;
-            max-width: 800px;
-            position: relative;
-        }
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel img {
-            min-width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
-
-  
-
-        .carousel img {
-        opacity: 0.6; /* Adjust transparency */
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    /* Optional: Remove transparency on hover */
-    .carousel img:hover {
-        opacity: 1;
-    }
-
-
-    .hero-title {
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 6rem;
-        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-subtitle {
-        font-family: 'Luckiest Guy', cursive;
-        font-size: 4rem;
-        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-    }
-
-
-    @font-face {
-    font-family: 'Pricedown';
-    src: url('/fonts/pricedown.ttf') format('truetype');
-}
-
-.hero-title, .hero-subtitle {
-    font-family: 'Pricedown', sans-serif;
-    font-size: 6rem;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-}
-  </style>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- HERO / LANDING SECTION -->
-  <header class="hero-section relative h-screen bg-black flex items-center justify-center">
-    <div class="carousel-wrapper relative w-full">
-        <div class="carousel-row z-20 bg-black pb-5" style="transform: rotate(3deg) translateY(5.1rem);">
-            <div class="carousel-container"><div id="carousel1" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel2" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel3" class="carousel"></div></div>
-        </div>
-        <div class="carousel-row z-10 bg-black pb-5" style="transform: rotate(-3deg) translateY(-10.1rem);">
-            <div class="carousel-container"><div id="carousel4" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel5" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel6" class="carousel"></div></div>
-        </div>
-        <div class="carousel-row bg-black pb-5" style="transform: rotate(2deg) translateY(-18.1rem);">
-            <div class="carousel-container"><div id="carousel7" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel8" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel9" class="carousel"></div></div>
-        </div>
+  <!-- MENU BUTTON -->
+<button class="menu-button" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
-        <!-- Overlay Title -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-30">
-            <h1 class="hero-title">SAVISHKAARA</h1>
-            <h2 class="hero-subtitle">2025</h2>
-        </div>
-    </div>
-</header>
-
-
-
-<!-- TECHFEST LOGOS IN A SINGLE ROW WITH CARD STYLE -->
-<section class="flex flex-wrap justify-center items-center gap-6 bg-black py-6">
-    <div class="logo-card">
-        <img 
-    src="assets/2024/savishkaara.PNG" 
-    srcset="assets/2024/savishkaara@2x.png 2x, assets/2024/savishkaara@3x.png 3x" 
-    alt="Savishkaara logo" 
-/>
-    </div>
-    <div class="logo-card">
-        <img src="assets/amrita-vishwa-vidyapeetham-university-logo-white-version.svg" alt="Amrita logo" />
-    </div>
-    <div class="logo-card">
-        <img src="assets/2024/iedcbgremoved-whiteText.png" alt="IEDC logo" />
-    </div>
-    <div class="logo-card">
-        <img src="assets/2024/IIC/IIC-removebg-preview-Increasedcolor.png" alt="IIC Logo" />
-    </div>
-    <div class="logo-card">
-        <img src="assets/2024/sicwhite.png" alt="SIC Logo" />
-    </div>
-    <div class="logo-card">
-        <img src="assets/2024/CSI.PNG" alt="CSI Logo" />
-    </div>
-</section>
-
-
-
-
-  <!-- "THE FLAME STILL BURNS" SECTION -->
-  <section class="flame-section">
-     <img src="assets/fire2.jpg" alt="A performer" /> 
-    <div class="overlay"></div>
-    <div class="content">
-      <h2 class="text-5xl md:text-7xl font-bold leading-tight tracking-wide">
-        THE <span class="text-flame">FLAME</span> <br class="hidden md:block" /> STILL BURNS
-      </h2>
-      <a href="about.html" class="mt-6 inline-flex items-center text-lg font-semibold text-gray-200 hover:text-white transition">
-        Learn more about the legacy
-        <span class="ml-2 text-xl">&rarr;</span>
-      </a>
-    </div>
-  </section>
-
-
-
-
-  <!-- ===================== EXAMPLE CARD SECTION ===================== -->
-  <section>
-  <section class="cards-section">
- 
-    <!-- Card 1 -->
-    <div class="card">
-      <div 
-        class="card-img"
-        style="background-image: url('YOUR_IMAGE_URL_1');"
-      ></div>
-      <div class="card-content">
-        <h4 class="card-title">01. Inception Of Sympo</h4>
-        <p class="card-description">Inception of Sympo is where innovation meets hands-on learning through workshops and expert-led training. Dive in, explore, and level up your skills!</p>
-      </div>
-    </div>
-    <!-- Card 2 -->
-    <div class="card">
-      <div 
-        class="card-img"
-        style="background-image: url('YOUR_IMAGE_URL_2');"
-      ></div>
-      <div class="card-content">
-        <h4 class="card-title">02.Technical Events </h4>
-        <p class="card-description">Technical Events is a powerhouse of innovation, featuring competitions, challenges, and tech-driven activities. Get ready to test your skills, think big, and push boundaries!</p>
-      </div>
-    </div>
-    <!-- Card 3 -->
-    <div class="card">
-      <div 
-        class="card-img"
-        style="background-image: url('YOUR_IMAGE_URL_3');"
-      ></div>
-      <div class="card-content">
-        <h4 class="card-title">03. Technical Expo</h4>
-        <p class="card-description">Technical Expo is a showcase of cutting-edge projects, groundbreaking innovations, and futuristic ideas. Explore, experience, and get inspired by the tech of tomorrow!</p>
-      </div>
-    </div>
-     <!-- Card 4 -->
-     <div class="card">
-        <div 
-          class="card-img"
-          style="background-image: url('YOUR_IMAGE_URL_1');"
-        ></div>
-        <div class="card-content">
-          <h4 class="card-title">04. Leisure Activity</h4>
-          <p class="card-description">A thrilling hub of non-technical games packed with excitement, challenges, and pure entertainment. Play, compete, and unwind!</p>
-        </div>
-      </div>
-      <!-- Card 5 -->
-      <div class="card">
-        <div 
-          class="card-img"
-          style="background-image: url('YOUR_IMAGE_URL_2');"
-        ></div>
-        <div class="card-content">
-          <h4 class="card-title">05. Talent Time</h4>
-          <p class="card-description">A stage where creativity shines and passions come to life! Show off your skills, mesmerize the crowd, and make your moment unforgettable.</p>
-        </div>
-      </div>
-      
-      </div>
-  </section>
-
-
-
-  <!--FAQ-->
-  <div class="bg-black text-white flex justify-center items-center py-12">
-    <div class="w-full max-w-7xl px-8 lg:px-24"> <!-- Extended max-width & more padding -->
-        <h1 class="text-6xl font-bold text-left text-neutral-200 mb-10 border-b-4 border-orange-500 pb-2">
-            FAQs
-        </h1>
-
-        <div class="space-y-8">
-            <!-- FAQ Item -->
-            <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
-                <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(1)">
-                    <span>When is Savishkaara'25 conducted?</span>
-                    <svg id="icon-1" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </button>
-                <p id="answer-1" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
-                    Savishkaara'25 will be held on April 10 and 11.
-                </p>
-            </div>
-
-            <!-- FAQ Item -->
-            <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
-                <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(2)">
-                    <span>Where is Savishkaara'25 held?</span>
-                    <svg id="icon-2" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </button>
-                <p id="answer-2" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
-                    Savishkaara'25 will be held at Amrita, Kochi.
-                </p>
-            </div>
-
-            <!-- FAQ Item -->
-            <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
-                <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(3)">
-                    <span>Who do I contact for enquiries?</span>
-                    <svg id="icon-3" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                </button>
-                <p id="answer-3" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
-                    For enquiries, please contact the event team.
-                </p>
-            </div>
-        </div>
-    </div>
+<!-- MENU OVERLAY -->
+<div class="menu-overlay" id="menuOverlay">
+  <ul class="menu-list">
+    <li>HOME</li>
+    <li>ABOUT</li>
+    <li>EVENTS</li>
+    <li>FAQ</li>
+    <li>CONTACT US</li>
+  </ul>
 </div>
 
 
+  <!-- HERO / LANDING SECTION (Unchanged) -->
+  <header class="hero-section relative h-screen bg-black flex items-center justify-center">
+    <div class="carousel-wrapper relative w-full">
+      <div class="carousel-row z-20 bg-black pb-5" style="transform: rotate(3deg) translateY(5.1rem);">
+        <div class="carousel-container"><div id="carousel1" class="carousel"></div></div>
+        <div class="carousel-container"><div id="carousel2" class="carousel"></div></div>
+        <div class="carousel-container"><div id="carousel3" class="carousel"></div></div>
+      </div>
+      <div class="carousel-row z-10 bg-black pb-5" style="transform: rotate(-3deg) translateY(-10.1rem);">
+        <div class="carousel-container"><div id="carousel4" class="carousel"></div></div>
+        <div class="carousel-container"><div id="carousel5" class="carousel"></div></div>
+        <div class="carousel-container"><div id="carousel6" class="carousel"></div></div>
+      </div>
+      <div class="carousel-row bg-black pb-5" style="transform: rotate(2deg) translateY(-18.1rem);">
+        <div class="carousel-container"><div id="carousel7" class="carousel"></div></div>
+        <div class="carousel-container"><div id="carousel8" class="carousel"></div></div>
+        <div class="carousel-container"><div id="carousel9" class="carousel"></div></div>
+      </div>
+
+      <!-- Overlay Title -->
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-30">
+        <h1 class="hero-title">SAVISHKAARA</h1>
+        <h2 class="hero-subtitle">2025</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quote Section with Enhanced Animation -->
+  <section
+    id="section-quote"
+    data-scroll-time="0.5"
+    data-w-id="6e02e256-251a-7737-2637-6af237029238"
+    class="section_quote lazy-section"
+    style="position: relative; background: black; padding: 40px 20px;"
+  >
+    <div class="padding-global padding-section-medium" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <div class="container-medium is-quote" style="position: relative;">
+        <!-- Top Decor -->
+        <div class="quote_decor-icons" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671a4c5b86c9e34860c28b68_icon-star.svg" loading="lazy" alt="" class="icon_star is-1" style="width: 30px; margin-right: 10px;" />
+          <div class="border-horizontal-wrap" style="flex: 1;">
+            <div class="border-horizontal" style="border-top: 2px solid #fff; opacity: 0.4; margin: 0 10px;"></div>
+          </div>
+          <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671a4c5b86c9e34860c28b68_icon-star.svg" loading="lazy" alt="" class="icon_star is-2" style="width: 30px; margin-left: 10px;" />
+        </div>
+
+        <div class="spacer-medium" style="height: 40px;"></div>
+
+        <!-- Main Quote Container -->
+        <div class="container-small is-quote" style="margin: 0 auto; max-width: 900px;">
+          <div class="about-content-block" style="position: relative;">
+            <!-- Animated Quote Text -->
+            <div class="split-word quote-text" style="transition: color 1.5s ease; color: #7d7d7d;">
+              SAVISHKAARA, AMRITA VISHWA VIDYAPEETHAM'S PREMIER TECH FEST, IS A HUB OF INNOVATION AND CREATIVITY.
+              <br /><br />
+              FROM AI HACKATHONS TO CUTTING-EDGE TECH TALKS, IT UNITES STUDENTS, ENTREPRENEURS, AND LEADERS TO SHAPE THE FUTURE.
+              <br /><br />
+              EXPERIENCE THE THRILL OF COLLABORATION AND THE PASSION FOR DISCOVERY THAT DEFINES THIS EVENT.
+              <br /><br />
+              WHERE VISIONARY THINKERS EXPLORE NEW HORIZONS, TURNING INNOVATION INTO ACTION AND REDEFINING THE POSSIBLE.
+            </div>
+          </div>
+        </div>
+
+        <div class="spacer-medium" style="height: 40px;"></div>
+
+        <!-- Bottom Decor -->
+        <div class="quote_decor-icons" style="display: flex; align-items: center; justify-content: center;">
+          <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671a4c5b86c9e34860c28b68_icon-star.svg" loading="lazy" alt="" class="icon_star is-1" style="width: 30px; margin-right: 10px;" />
+          <div class="border-horizontal-wrap" style="flex: 1;">
+            <div class="border-horizontal" style="border-top: 2px solid #fff; opacity: 0.4; margin: 0 10px;"></div>
+          </div>
+          <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671a4c5b86c9e34860c28b68_icon-star.svg" loading="lazy" alt="" class="icon_star is-2" style="width: 30px; margin-left: 10px;" />
+        </div>
+
+        <!-- Hidden/Placeholder Elements -->
+        <p class="text-qoute-bottom opacity-0 pointer-events-none">1</p>
+        <div class="flex-quote-right hide-adaptives" style="position: absolute; bottom: 0; right: 0; opacity: 0.3;">
+          <div svg-delay="1000" svg="animated" svg-animation-time="5000" class="quote_icon w-embed">
+            <div style="width: 100%; display: flex; justify-content: center;">
+              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 41 37" style="width: auto; height: 2.3em;" class="responsive-svg">
+                <path stroke="#665C57" d="M30.597 17.923h-7.914V.5H40.5v19.47c0 5.31-1.683 9.42-4.769 12.208-3.005 2.716-7.404 4.234-13.048 4.318v-7.828c2.67-.083 4.753-.84 6.185-2.289 1.52-1.538 2.229-3.775 2.229-6.563v-1.893h-.5Zm-22.183 0H.5V.5h17.817v19.47c0 5.31-1.683 9.42-4.769 12.208C10.543 34.894 6.144 36.412.5 36.496v-7.828c2.671-.083 4.753-.84 6.185-2.289 1.52-1.538 2.23-3.775 2.23-6.563v-1.893h-.5Z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Absolute Dots on Sides -->
+    <div data-hide-on="tablet-mobile" class="absolute flex-quote-shape-left hide-adaptives" style="top: 50%; left: 0; transform: translateY(-50%);">
+      <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671b7a980f59a762ad368a4f_shape_quote-dots.svg" loading="lazy" data-w-id="0cac3221-0c30-0b1d-4c6a-8c85d4e372c8" alt="" class="image" style="width: 80px; opacity: 0.3;" />
+    </div>
+    <div data-hide-on="tablet-mobile" class="absolute flex-quote-shape-right hide-adaptives" style="top: 50%; right: 0; transform: translateY(-50%);">
+      <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671b7a980f59a762ad368a4f_shape_quote-dots.svg" loading="lazy" data-w-id="7524a5ed-24e8-1d7a-5912-31d4feb66580" alt="" class="image" style="width: 80px; opacity: 0.3;" />
+    </div>
+  </section>
+
+
+
+
+ 
+      <!-- TECHFEST LOGOS  -->
+      <section class="bg-black py-6 -mt-4">
+        <div class="flex flex-wrap justify-center items-center gap-10">
+          <!-- Logo 1 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/iedcbgremoved-whiteText.png" 
+              alt="IEDC"  
+              class="max-w-[70px] transition duration-300 hover:scale-105"
+            />
+          </div>
+         
+          <!-- Logo 2 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/savishkaara.PNG" 
+              alt="Savishkaara"  
+              class="max-w-[120px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          
+          <!-- Logo 3 -->
+          <div class="logo-item">
+            <img 
+              src="assets/amrita-vishwa-vidyapeetham-university-logo-white-version.svg" 
+              alt="Amrita"  
+              class="max-w-[140px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 4 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/IIC/IIC-removebg-preview-Increasedcolor.png"  
+              alt="IIC"  
+              class="max-w-[120px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 5 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/sicwhite.png" 
+              alt="SIC" 
+              class="max-w-[120px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 6 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/CSI.PNG" 
+              alt="CSI" 
+              class="max-w-[80px] transition duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+      </section>
+      
+  
+      
+
+
+
+
+  <!-- FAQ -->
+  <div class="bg-black text-white flex justify-center items-center py-12">
+    <div class="w-full max-w-7xl px-8 lg:px-24">
+      <h1 class="text-6xl font-bold text-left text-neutral-200 mb-10 border-b-4 border-orange-500 pb-2">
+        FAQs
+      </h1>
+      <div class="space-y-8">
+        <!-- FAQ Item -->
+        <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
+          <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(1)">
+            <span>When is Savishkaara'25?</span>
+            <svg id="icon-1" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+          <p id="answer-1" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+            Savishkaara'25 will be held on April 10 and 11.
+          </p>
+        </div>
+        <!-- FAQ Item -->
+        <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
+          <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(2)">
+            <span>Where is Savishkaara'25 held?</span>
+            <svg id="icon-2" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+          <p id="answer-2" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+            Savishkaara'25 will be held at Amrita, Kochi.
+          </p>
+        </div>
+        <!-- FAQ Item -->
+        <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
+          <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(3)">
+            <span>Who do I contact for enquiries?</span>
+            <svg id="icon-3" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"></path>
+            </svg>
+          </button>
+          <p id="answer-3" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+            For enquiries, please contact the event team.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer class="custom-footer">
@@ -728,70 +259,121 @@
   </footer>
 
   <script>
-    // Cycle through hero title texts every second
-    // const titles = ["SAVISHKAARA", "सविष्कारा", "സവിഷ്കാര", "சவிஷ்கார"];
-    // let index = 0;
-    // const heroTitle = document.querySelector('.hero-title');
-    // setInterval(() => {
-    //   heroTitle.textContent = titles[index];
-    //   index = (index + 1) % titles.length;
-    // }, 1000);
-
-
-
+    // FAQ Toggle Function
     function toggleFAQ(id) {
-            let answer = document.getElementById(`answer-${id}`);
-            let icon = document.getElementById(`icon-${id}`);
+      let answer = document.getElementById(`answer-${id}`);
+      let icon = document.getElementById(`icon-${id}`);
+      if (answer.classList.contains("hidden")) {
+        answer.classList.remove("hidden");
+        icon.textContent = "⬆️";
+      } else {
+        answer.classList.add("hidden");
+        icon.textContent = "⬇️";
+      }
+    }
 
-            if (answer.classList.contains("hidden")) {
-                answer.classList.remove("hidden");
-                icon.textContent = "⬆️";
-            } else {
-                answer.classList.add("hidden");
-                icon.textContent = "⬇️";
-            }
-        }
+    // Carousel Functionality
+    const imageUrls = [
+      "D:/saviskaarawebsite/assets/h1.jpg",
+      "D:/saviskaarawebsite/assets/theyyambg.jpg",
+      "D:/saviskaarawebsite/assets/fire.jpg",
+      "D:/saviskaarawebsite/assets/h.jpg",
+      "D:/saviskaarawebsite/assets/fire1.jpg",
+      "D:/saviskaarawebsite/assets/fire2.jpg"
+    ];
     
+    function createCarousel(id) {
+      const carousel = document.getElementById(id);
+      imageUrls.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        carousel.appendChild(img);
+      });
+    }
+    
+    function startCarousel(carouselId, reverse = false) {
+      const carousel = document.getElementById(carouselId);
+      let index = 0;
+      const images = carousel.children;
+      function slide() {
+        index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
+        const offset = -index * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+      }
+      setInterval(slide, 3000);
+    }
+    
+    for (let i = 1; i <= 9; i++) {
+      createCarousel(`carousel${i}`);
+      startCarousel(`carousel${i}`, i % 2 === 0);
+    }
 
-        const imageUrls = [
-            "D:/saviskaarawebsite/assets/h1.jpg",
-            "D:/saviskaarawebsite/assets/theyyambg.jpg",
-            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
-            "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
-            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-        ];
-        
-        function createCarousel(id) {
-            const carousel = document.getElementById(id);
-            imageUrls.forEach(url => {
-                const img = document.createElement("img");
-                img.src = url;
-                carousel.appendChild(img);
-            });
+    // Split Text Animation using SplitType and GSAP
+    function runSplit() {
+      const typeSplit = new SplitType(".split-word", {
+        types: "lines, words"
+      });
+      document.querySelectorAll(".word").forEach((word) => {
+        const mask = document.createElement("div");
+        mask.classList.add("line-mask");
+        word.appendChild(mask);
+      });
+      createAnimation();
+    }
+    runSplit();
+
+    gsap.registerPlugin(ScrollTrigger);
+    function createAnimation() {
+      const allMasks = Array.from(document.querySelectorAll(".line-mask"));
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".split-word",
+          start: "top 85%",
+          end: "bottom center",
+          scrub: 1
         }
-        
-        function startCarousel(carouselId, reverse = false) {
-            const carousel = document.getElementById(carouselId);
-            let index = 0;
-            const images = carousel.children;
-            
-            function slide() {
-                index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
-                const offset = -index * 100;
-                carousel.style.transform = `translateX(${offset}%)`;
-            }
-            
-            setInterval(slide, 3000);
-        }
-        
-        for (let i = 1; i <= 9; i++) {
-            createCarousel(`carousel${i}`);
-            startCarousel(`carousel${i}`, i % 2 === 0);
-        }
+      });
+      tl.to(allMasks, {
+        width: "0%",
+        duration: 1,
+        stagger: 0.5
+      });
+    }
+
+    // Additional GSAP Animation for Quote Text (Fade In & Slide Up)
+    gsap.from(".quote-text", {
+      scrollTrigger: {
+        trigger: ".quote-text",
+        start: "top 85%",
+        end: "bottom center",
+        scrub: true
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out"
+    });
+
+    // Intersection Observer for Scroll-Based Color Transition on Quote Text
+    document.addEventListener("DOMContentLoaded", function() {
+      const quoteText = document.querySelector(".split-word.quote-text");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            quoteText.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.2 });
+      if (quoteText) {
+        observer.observe(quoteText);
+      }
+    });
 
 
-
-
+    function toggleMenu() {
+  const overlay = document.getElementById('menuOverlay');
+  overlay.classList.toggle('active');
+}
   </script>
 </body>
 </html>

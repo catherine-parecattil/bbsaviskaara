@@ -1,0 +1,602 @@
+:root {
+    --main-font: 'YourFontFamily', sans-serif; /* Replace with your actual font */
+    --accent-color: #FBBF24; /* Replace with your exact accent color */
+    --text-color: #ffffff;
+    --bg-color: #000000;
+    --secondary-text: #999999;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.custom-nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+}
+
+/* HERO / LANDING SECTION */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 2;
+}
+.overlay-title {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-title {
+    font-size: 6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    animation: fadeIn 0.5s ease-in-out;
+    font-family: 'Pricedown', sans-serif;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+@media (min-width: 768px) {
+    .hero-title { font-size: 8rem; }
+}
+.hero-subtitle {
+    font-family: 'Pricedown', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    animation: fadeIn 0.5s ease-in-out;
+}
+@media (min-width: 768px) {
+    .hero-subtitle { font-size: 4rem; }
+}
+.prompt-bubble {
+    margin-top: 1.5rem;
+    background-color: #2d2d2d;
+    color: #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    display: inline-block;
+}
+
+/* GRID SECTION (Techfest Logos) */
+.grid-section {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+}
+.grid-section > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+.grid-section .bg-red { background-color: #a00; }
+.grid-section .logo img { height: 80px; }
+
+/* SECOND GRID SECTION (Cards) */
+.cards-section {
+    position: relative;
+    padding: 4rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+@media (min-width: 768px) {
+    .cards-section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.card {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #2d2d2d;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.card-img {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    transition: background-size 0.5s ease-in-out;
+}
+.card:hover .card-img {
+    animation: zoomIn 0.5s forwards;
+}
+.card-content {
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.card-description {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+/* Logo Cards */
+.logo-card {
+    width: 180px;
+    height: 180px;
+    background-color: #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+.logo-card:hover {
+    transform: scale(1.1);
+}
+.logo-card img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Carousel Section */
+.carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.carousel-row {
+    display: flex;
+    gap: 20px;
+}
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+    min-width: 100%;
+    height: 400px;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+}
+.carousel img:hover {
+    opacity: 1;
+}
+
+/* Pricdown Font */
+@import url('https://fonts.cdnfonts.com/css/pricedown');
+@font-face {
+    font-family: 'Pricedown';
+    src: url('/fonts/pricedown.ttf') format('truetype');
+}
+
+/* Quote Section */
+.section_quote {
+    position: relative;
+    background: black;
+    padding: 40px 20px;
+    text-align: center;
+}
+.padding-global { padding: 20px; }
+.padding-section-medium { padding: 40px; }
+.container-medium { max-width: 1200px; margin: 0 auto; }
+.container-small { max-width: 900px; margin: 0 auto; }
+.spacer-medium { height: 40px; }
+.quote_decor-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.border-horizontal-wrap {
+    flex: 1;
+}
+.border-horizontal {
+    border-top: 2px solid #fff;
+    opacity: 0.4;
+    margin: 0 10px;
+}
+.icon_star { width: 30px; height: auto; }
+.image { width: 80px; opacity: 0.3; }
+.flex-quote-shape-left, .flex-quote-shape-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.flex-quote-shape-left { left: 0; }
+.flex-quote-shape-right { right: 0; }
+.about-content-block { position: relative; }
+.split-word {
+    font-size: 2rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333; /* initial dark color */
+    transition: color 1.5s ease;
+}
+.quote-text.visible {
+    color: #FCE8DB; /* lighter color when visible */
+}
+.faded-line {
+    opacity: 0.2;
+}
+
+/* FAQ Section */
+.bg-black { background-color: #000; }
+.text-white { color: #fff; }
+.text-neutral-200 { color: #e5e7eb; }
+.text-neutral-300 { color: #d1d5db; }
+.text-neutral-400 { color: #9ca3af; }
+.border-orange-500 { border-color: #294bf3; }
+.pointer-events-none { pointer-events: none; }
+.hidden { display: none; }
+
+/* Footer */
+.custom-footer {
+    position: relative;
+    z-index: 20;
+    padding: 2rem;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #aaa;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--accent-color); }
+
+/* "THE FLAME STILL BURNS" SECTION */
+.flame-section {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    text-align: center;
+}
+.flame-section img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+.flame-section .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+.flame-section .content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
+}
+.flame-section h2 {
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.text-flame {
+    color: #f3d186;
+    text-shadow: 0 0 10px rgba(243,209,134,0.8), 0 0 20px rgba(243,209,134,0.6);
+}
+.flame-section a {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ccc;
+    transition: color 0.3s;
+}
+.flame-section a:hover { color: #fff; }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero-title { font-size: 3rem; }
+    .hero-subtitle { font-size: 2rem; }
+    .grid-section { grid-template-columns: repeat(2, 1fr); }
+    .logo-carousel {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+    }
+    .logo-carousel .logo-container {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        padding: 1rem;
+    }
+    .logo-carousel .logo-container img {
+        max-width: 100px;
+        height: auto;
+    }
+}
+@media (max-width: 480px) {
+    .grid-section { grid-template-columns: 1fr; }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animated-grid > div {
+    animation: fadeInUp 0.8s ease-in-out;
+}
+.animated-grid > div:nth-child(1) { animation-delay: 0.2s; }
+.animated-grid > div:nth-child(2) { animation-delay: 0.4s; }
+.animated-grid > div:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes hoverLift {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+}
+@keyframes zoomIn {
+    from { background-size: 100%; }
+    to { background-size: 110%; }
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: none;
+    border: 2px solid;
+    border-image-source: linear-gradient(to right, blue, violet, #FFA500, #FFD700);
+    border-image-slice: 1;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+/* Initial state: dark text for quote */
+.split-word.quote-text {
+    color: #333; /* Dark color initially */
+    transition: color 1.5s ease;
+  }
+  
+  /* When the element is visible, change color to a lighter tone */
+  .split-word.quote-text.visible {
+    color: #FCE8DB;
+  }
+  
+  /* Optional: adjust the faded-line if needed */
+  .faded-line {
+    opacity: 0.2;
+  }
+
+  
+  /* Quote Section Additional Styles */
+.split-word.quote-text {
+    color: #333; /* initial dark color */
+    transition: color 1.5s ease;
+    font-size: 2rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .split-word.quote-text.visible {
+    color: #FCE8DB; /* lighter color when visible */
+  }
+  .faded-line {
+    opacity: 0.2;
+  }
+  
+  /* Responsive SVG (for the decorative icon) */
+  .responsive-svg {
+    height: 2.3em;
+  }
+  @media screen and (max-width: 768px) {
+    .responsive-svg {
+      height: 3.38em;
+    }
+  }
+
+
+  .logo-row {
+    background-color: #fff;
+    padding: 2rem 0; /* top & bottom padding */
+    text-align: center;
+  }
+  
+  .logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;         /* allow wrapping on smaller screens */
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+    gap: 2rem;               /* space between logos */
+  }
+  
+  .logo-container img {
+    max-width: 120px; /* Adjust as needed */
+    transition: transform 0.3s ease;
+  }
+  
+  .logo-container img:hover {
+    transform: scale(1.05); /* Slight enlarge on hover */
+  }
+  
+
+  /* Menu Button (Hamburger Icon) */
+.menu-button {
+    position: fixed;    /* stays on top */
+    top: 20px;          /* adjust for desired vertical position */
+    right: 20px;        /* adjust for desired horizontal position */
+    z-index: 9999;      /* above other elements */
+    width: 35px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* 3 horizontal bars for the hamburger */
+  .menu-button span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  
+  /* Menu Overlay (hidden by default) */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;         /* full screen */
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-100%);  /* moves overlay offscreen */
+    transition: transform 0.4s ease;
+    z-index: 9998;        /* just below the button */
+  }
+  
+  /* When active, overlay slides down into view */
+  .menu-overlay.active {
+    transform: translateY(0);
+  }
+  
+  /* Menu List inside overlay */
+  .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* Menu Items */
+  .menu-list li {
+    font-size: 3rem;        /* large text */
+    font-weight: 600;
+    color: #fff;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  /* Simple strikethrough on hover */
+  /* .menu-list li:hover {
+    text-decoration: line-through;
+    text-decoration-color: rgb(86, 86, 3);
+    text-decoration-skip-ink: none;
+  } */
+  
+
+
+  
+  /* Optionally, you can do a sliding line effect using pseudo-elements: */
+  .menu-list li {
+    overflow: hidden;
+  }
+  .menu-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 0;
+    height: 4px;
+    background: #fff;
+    transition: width 0.3s ease;
+}
+  .menu-list li:hover::before {
+    width: 100%;
+  }
+ 
+  
