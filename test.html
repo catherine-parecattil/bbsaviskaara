@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoplay Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .carousel-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .carousel-row {
+            display: flex;
+            gap: 20px;
+        }
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            min-width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+</head> 
+<bodyclass="flex items-center justify-center h-screen bg-black">
+    <div class="carousel-wrapper">
+        <div class="carousel-row z-20 bg-black pb-5" style="transform: rotate(3deg) translateY(5.1rem); ">
+            <div class="carousel-container"><div id="carousel1" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel2" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel3" class="carousel"></div></div>
+        </div>
+        <div class="carousel-row z-10 bg-black pb-5" style="transform: rotate(-3deg) translateY(-10.1rem);">
+            <div class="carousel-container"><div id="carousel4" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel5" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel6" class="carousel"></div></div>
+        </div>
+        <div class="carousel-row bg-black pb-5" style="transform: rotate(2deg) translateY(-18.1rem);">
+            <div class="carousel-container"><div id="carousel7" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel8" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel9" class="carousel"></div></div>
+        </div>
+    </div>
+    
+    <script>
+        const imageUrls = [
+            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+            "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
+            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+            "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
+            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+        ];
+        
+        function createCarousel(id) {
+            const carousel = document.getElementById(id);
+            imageUrls.forEach(url => {
+                const img = document.createElement("img");
+                img.src = url;
+                carousel.appendChild(img);
+            });
+        }
+        
+        function startCarousel(carouselId, reverse = false) {
+            const carousel = document.getElementById(carouselId);
+            let index = 0;
+            const images = carousel.children;
+            
+            function slide() {
+                index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
+                const offset = -index * 100;
+                carousel.style.transform = `translateX(${offset}%)`;
+            }
+            
+            setInterval(slide, 3000);
+        }
+        
+        for (let i = 1; i <= 9; i++) {
+            createCarousel(`carousel${i}`);
+            startCarousel(`carousel${i}`, i % 2 === 0);
+        }
+    </script>
+</body>
+</html>

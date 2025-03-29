@@ -9,11 +9,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
   <!-- CUSTOM FONTS (replace with your fonts) -->
-  <!--
+  
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=YourFontFamily:wght@400;700&display=swap" rel="stylesheet" />
-  -->
+ 
 
   <!-- CUSTOM CSS -->
   <style>
@@ -457,22 +457,101 @@
 }
 
 
+
+
+.carousel-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .carousel-row {
+            display: flex;
+            gap: 20px;
+        }
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img {
+            min-width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
   
+
+        .carousel img {
+        opacity: 0.6; /* Adjust transparency */
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Optional: Remove transparency on hover */
+    .carousel img:hover {
+        opacity: 1;
+    }
+
+
+    .hero-title {
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 6rem;
+        text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-subtitle {
+        font-family: 'Luckiest Guy', cursive;
+        font-size: 4rem;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+
+    @font-face {
+    font-family: 'Pricedown';
+    src: url('/fonts/pricedown.ttf') format('truetype');
+}
+
+.hero-title, .hero-subtitle {
+    font-family: 'Pricedown', sans-serif;
+    font-size: 6rem;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
   </style>
 </head>
 <body>
 
   <!-- HERO / LANDING SECTION -->
-  <header class="hero-section">
-    <div class="hero-bg" style="background-image: url('assets/theyyambg.jpg');"></div>
-    <div class="hero-overlay"></div>
-   
-    <div class="hero-content">
-      <h1 class="hero-title">SAVISHKAARA</h1>
-      <h2 class="hero-subtitle">2025</h2>
-      <div class="prompt-bubble"></div>
+  <header class="hero-section relative h-screen bg-black flex items-center justify-center">
+    <div class="carousel-wrapper relative w-full">
+        <div class="carousel-row z-20 bg-black pb-5" style="transform: rotate(3deg) translateY(5.1rem);">
+            <div class="carousel-container"><div id="carousel1" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel2" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel3" class="carousel"></div></div>
+        </div>
+        <div class="carousel-row z-10 bg-black pb-5" style="transform: rotate(-3deg) translateY(-10.1rem);">
+            <div class="carousel-container"><div id="carousel4" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel5" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel6" class="carousel"></div></div>
+        </div>
+        <div class="carousel-row bg-black pb-5" style="transform: rotate(2deg) translateY(-18.1rem);">
+            <div class="carousel-container"><div id="carousel7" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel8" class="carousel"></div></div>
+            <div class="carousel-container"><div id="carousel9" class="carousel"></div></div>
+        </div>
+
+        <!-- Overlay Title -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-30">
+            <h1 class="hero-title">SAVISHKAARA</h1>
+            <h2 class="hero-subtitle">2025</h2>
+        </div>
     </div>
-  </header>
+</header>
+
+
 
 <!-- TECHFEST LOGOS IN A SINGLE ROW WITH CARD STYLE -->
 <section class="flex flex-wrap justify-center items-center gap-6 bg-black py-6">
@@ -500,7 +579,8 @@
     </div>
 </section>
 
-  
+
+
 
   <!-- "THE FLAME STILL BURNS" SECTION -->
   <section class="flame-section">
@@ -649,13 +729,13 @@
 
   <script>
     // Cycle through hero title texts every second
-    const titles = ["SAVISHKAARA", "सविष्कारा", "സവിഷ്കാര", "சவிஷ்கார"];
-    let index = 0;
-    const heroTitle = document.querySelector('.hero-title');
-    setInterval(() => {
-      heroTitle.textContent = titles[index];
-      index = (index + 1) % titles.length;
-    }, 1000);
+    // const titles = ["SAVISHKAARA", "सविष्कारा", "സവിഷ്കാര", "சவிஷ்கார"];
+    // let index = 0;
+    // const heroTitle = document.querySelector('.hero-title');
+    // setInterval(() => {
+    //   heroTitle.textContent = titles[index];
+    //   index = (index + 1) % titles.length;
+    // }, 1000);
 
 
 
@@ -672,6 +752,46 @@
             }
         }
     
+
+        const imageUrls = [
+            "D:/saviskaarawebsite/assets/h1.jpg",
+            "D:/saviskaarawebsite/assets/theyyambg.jpg",
+            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
+            "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
+            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
+        ];
+        
+        function createCarousel(id) {
+            const carousel = document.getElementById(id);
+            imageUrls.forEach(url => {
+                const img = document.createElement("img");
+                img.src = url;
+                carousel.appendChild(img);
+            });
+        }
+        
+        function startCarousel(carouselId, reverse = false) {
+            const carousel = document.getElementById(carouselId);
+            let index = 0;
+            const images = carousel.children;
+            
+            function slide() {
+                index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
+                const offset = -index * 100;
+                carousel.style.transform = `translateX(${offset}%)`;
+            }
+            
+            setInterval(slide, 3000);
+        }
+        
+        for (let i = 1; i <= 9; i++) {
+            createCarousel(`carousel${i}`);
+            startCarousel(`carousel${i}`, i % 2 === 0);
+        }
+
+
+
+
   </script>
 </body>
 </html>
