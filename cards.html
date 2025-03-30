@@ -236,3 +236,71 @@
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+// // Carousel JavaScript for Cards
+// const wrapper = document.getElementById("cardsWrapper");
+// let cards = Array.from(document.querySelectorAll(".card"));
+// const numCards = cards.length;
+// let currentIndex = 0;
+// const arcRadius = 600;
+// const arcAngle = 120;
+// const visibleCardCount = 5;
+// const cardAngleOffset = arcAngle / (visibleCardCount - 1);
+
+// function positionCards() {
+//   cards.forEach((card, i) => {
+//     let effectiveIndex = i - currentIndex;
+//     if (effectiveIndex > numCards / 2) {
+//       effectiveIndex -= numCards;
+//     } else if (effectiveIndex <= -numCards / 2) {
+//       effectiveIndex += numCards;
+//     }
+//     let displayIndex;
+//     if (effectiveIndex >= -Math.floor(visibleCardCount / 2) && effectiveIndex <= Math.floor(visibleCardCount / 2)) {
+//       displayIndex = effectiveIndex;
+//     } else {
+//       displayIndex = 1000; // Hide card if outside visible range
+//     }
+//     let angle = 0;
+//     let x = 0;
+//     let y = 0;
+//     let rotate = 0;
+//     let scaleFactor = 0.8;
+//     let opacityFactor = 0.2;
+//     let zIndex = 1;
+//     if (Math.abs(displayIndex) < 3) { // For the 5 visible cards
+//       angle = displayIndex * cardAngleOffset;
+//       const angleRad = angle * Math.PI / 180;
+//       x = arcRadius * Math.sin(angleRad);
+//       y = -arcRadius * Math.cos(angleRad) + arcRadius * 0.6;
+//       rotate = angle;
+//       scaleFactor = 1 - Math.abs(displayIndex) * 0.1;
+//       opacityFactor = 1 - Math.abs(displayIndex) * 0.2;
+//       zIndex = 10 - Math.abs(displayIndex) * 2;
+
+//       card.className = 'card';
+//       if (displayIndex === 0 && effectiveIndex === 0) {
+//         card.classList.add('active');
+//       } else if (Math.abs(displayIndex) === 1 && Math.abs(effectiveIndex) <= 1) {
+//         card.classList.add('adjacent');
+//       }
+//     } else {
+//       scaleFactor = 0;
+//       opacityFactor = 0;
+//       zIndex = -1;
+//       card.className = 'card';
+//     }
+//     card.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotate}deg) scale(${scaleFactor})`;
+//     card.style.opacity = Math.max(0, opacityFactor);
+//     card.style.zIndex = zIndex;
+//   });
+// }

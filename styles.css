@@ -70,7 +70,7 @@ html, body {
     text-transform: uppercase;
     line-height: 1;
     margin: 0;
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
     animation: fadeIn 0.5s ease-in-out;
     font-family: 'Pricedown', sans-serif;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
@@ -79,15 +79,41 @@ html, body {
     .hero-title { font-size: 8rem; }
 }
 .hero-subtitle {
-    font-family: 'Pricedown', sans-serif;
-    font-size: 3rem;
+    font-family: 'rage', sans-serif; /* Or your desired neon-style font */
+    font-size: 4rem;
     font-weight: 700;
     margin-top: 1rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff; /* Base text color (white) */
+    
+    /* Multiple layered shadows to achieve a neon pink glow */
+    text-shadow:
+        /* A slight white inner glow */
+        0 0 2px rgba(255, 255, 255, 0.7),
+        /* Bright pink glows */
+        0 0 4px rgba(255, 0, 128, 0.8),
+        0 0 8px rgba(255, 0, 128, 0.6),
+        0 0 12px rgba(255, 0, 128, 0.5),
+        0 0 16px rgba(255, 0, 128, 0.5),
+        0 0 20px rgba(255, 0, 128, 0.4),
+        0 0 24px rgba(255, 0, 128, 0.4);
+
     animation: fadeIn 0.5s ease-in-out;
 }
+
+/* Example keyframes for fadeIn (if not already defined) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (min-width: 768px) {
-    .hero-subtitle { font-size: 4rem; }
+    .hero-subtitle { font-size: 8rem; }
 }
 .prompt-bubble {
     margin-top: 1.5rem;
@@ -116,81 +142,16 @@ html, body {
 .grid-section .bg-red { background-color: #a00; }
 .grid-section .logo img { height: 80px; }
 
-/* SECOND GRID SECTION (Cards) */
-.cards-section {
-    position: relative;
-    padding: 4rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-@media (min-width: 768px) {
-    .cards-section {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-.card {
-    position: relative;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    background-color: #2d2d2d;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 0.8s ease-out;
-}
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-.card-img {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    transition: background-size 0.5s ease-in-out;
-}
-.card:hover .card-img {
-    animation: zoomIn 0.5s forwards;
-}
-.card-content {
-    padding: 15px;
-    color: white;
-    text-align: center;
-}
-.card-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.card-description {
-    font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.8;
-}
 
-/* Logo Cards */
-.logo-card {
-    width: 180px;
-    height: 180px;
-    background-color: #111;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-.logo-card:hover {
-    transform: scale(1.1);
-}
-.logo-card img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-}
+
+
 
 /* Carousel Section */
+
+.carousel img:hover {
+    opacity: 1;
+}
+
 .carousel-wrapper {
     display: flex;
     flex-direction: column;
@@ -213,12 +174,6 @@ html, body {
 .carousel img {
     min-width: 100%;
     height: 400px;
-    object-fit: cover;
-    opacity: 0.6;
-    transition: opacity 0.3s ease-in-out;
-}
-.carousel img:hover {
-    opacity: 1;
 }
 
 /* Pricdown Font */
@@ -451,16 +406,19 @@ html, body {
     opacity: 0.2;
   }
 
-  
-  /* Quote Section Additional Styles */
-.split-word.quote-text {
-    color: #333; /* initial dark color */
-    transition: color 1.5s ease;
+  .split-word.quote-text {
+    /* Apply the custom font */
+    font-family: 'CustomQuoteFont', sans-serif;
     font-size: 2rem;
     line-height: 1.4;
     text-transform: uppercase;
     font-weight: 700;
+    color: #7d7d7d;
+    transition: color 1.5s ease;
   }
+
+
+
   .split-word.quote-text.visible {
     color: #FCE8DB; /* lighter color when visible */
   }
@@ -626,14 +584,14 @@ html, body {
     height: auto;
   }
   .card {
-    width: 200px;
-    height: 300px;
+    width: 300px; /* Increase width */
+    height: 400px; /* Increase height */
     border-radius: 12px;
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
     position: absolute;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Adjust the duration as needed */
     cursor: pointer;
     border: 2px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
@@ -657,28 +615,21 @@ html, body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
   .controls {
-    position: absolute;
-    top: 50px;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-    padding: 0 50px;
+    justify-content: flex-end;; /* Center the arrows */
+    margin-top: 20px; /* Space between cards and arrows */
   }
   .arrow {
-    pointer-events: all;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    padding: 12px 18px;
-    font-size: 28px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.3s, transform 0.3s;
-    color: #fff;
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    color: white; /* Change arrow color */
+    font-size: 2rem; /* Adjust size as needed */
+    cursor: pointer; /* Change cursor to pointer */
+    margin: 0 10px; /* Space between arrows */
+    transition: transform 0.3s; /* Add transition for hover effect */
   }
   .arrow:hover {
-    background: rgba(255, 255, 255, 0.4);
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slightly enlarge on hover */
   }
   .card.active {
     opacity: 1;
@@ -691,3 +642,29 @@ html, body {
     transform: scale(1.1);
     z-index: 8;
   }
+
+
+  @font-face {
+    font-family: 'Pricedown'; /* Name of the font */
+    src: url('fonts/Pricedown Bl.otf')
+}
+@font-face {
+    font-family: 'rage'; /* Name of the font */
+    src: url('fonts/RAGE_1.TTF')
+}
+@font-face {
+    font-family: 'sf'; /* Name of the font */
+    src: url('fonts/SF Arborcrest Light Oblique.ttf')
+}
+h1 {
+    font-family: 'pricedown', sans-serif; /* Fallback to sans-serif */
+}
+li {
+    font-family: 'pricedown', sans-serif; /* Fallback to sans-serif */
+}
+h2 {
+    font-family: 'rage', sans-serif; /* Fallback to sans-serif */
+}
+l2 {
+    font-family: 'rage', sans-serif; /* Fallback to sans-serif */
+}

@@ -89,7 +89,7 @@
         <div class="container-small is-quote" style="margin: 0 auto; max-width: 900px;">
           <div class="about-content-block" style="position: relative;">
             <!-- Animated Quote Text -->
-            <div class="split-word quote-text" style="transition: color 1.5s ease; color: #7d7d7d;">
+            <div class="split-word quote-text">
               SAVISHKAARA, AMRITA VISHWA VIDYAPEETHAM'S PREMIER TECH FEST, IS A HUB OF INNOVATION AND CREATIVITY.
               <br /><br />
               FROM AI HACKATHONS TO CUTTING-EDGE TECH TALKS, IT UNITES STUDENTS, ENTREPRENEURS, AND LEADERS TO SHAPE THE FUTURE.
@@ -100,7 +100,7 @@
             </div>
           </div>
         </div>
-
+        
         <div class="spacer-medium" style="height: 40px;"></div>
 
         <!-- Bottom Decor -->
@@ -197,28 +197,25 @@
 <section class="carousel-section">
   <div class="carousel-container">
     <div class="cards-wrapper" id="cardsWrapper">
-      <div class="card" onclick="location.href='test.html';" style="background-image: url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">TECH EXPO</p>
+      <div class="card" onclick="location.href='techxpo.html';" style="background-image: url('D:/saviskaarawebsite/assets/techxpo.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">TECHXPO</p>
       </div>
-      <div class="card" style="background-image: url('https://plus.unsplash.com/premium_photo-1683120966127-14162cdd0935?q=80&w=1926&auto=format&fit=crop'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">Tech</p>
+      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/techsynergy.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">TECH SYNERGY</p>
       </div>
-      <div class="card" style="background-image: url('https://source.unsplash.com/200x300/?abstract&sig=13');">
-        <h2>K3</h2>
-        <p>Card 3</p>
+      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/unplugged.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">UNPLUGGED</p>
       </div>
-      <div class="card" style="background-image: url('https://source.unsplash.com/200x300/?abstract&sig=14');">
-        <h2>K4</h2>
-        <p>Card 4</p>
+      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/mysticquest.png');display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">MYSTIC QUEST</p>
       </div>
-      <div class="card" style="background-image: url('https://source.unsplash.com/200x300/?abstract&sig=15');">
-        <h2>K5</h2>
-        <p>Card 5</p>
+      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/handsontech.png');display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">HANDS-ON-TECH</p>
       </div>
     </div>
     <div class="controls">
-      <button class="arrow" onclick="movePrev()">❮</button>
-      <button class="arrow" onclick="moveNext()">❯</button>
+      
+      <button class="arrow" id="nextArrow">❯</button>
     </div>
   </div>
 </section>
@@ -281,77 +278,264 @@
 </footer>
 
 <script>
-  // Existing JavaScript code...
-  
 
-  // Carousel JavaScript for Cards
-  const wrapper = document.getElementById("cardsWrapper");
-  let cards = Array.from(document.querySelectorAll(".card"));
-  const numCards = cards.length;
-  let currentIndex = 0;
-  const arcRadius = 600;
-  const arcAngle = 120;
-  const visibleCardCount = 5;
-  const cardAngleOffset = arcAngle / (visibleCardCount - 1);
+// Carousel JavaScript for Cards
+// Carousel JavaScript for Cards
+const wrapper = document.getElementById("cardsWrapper");
+let cards = Array.from(document.querySelectorAll(".card"));
+const numCards = cards.length;
+let currentIndex = 0;
 
-  function positionCards() {
-    cards.forEach((card, i) => {
-      let effectiveIndex = i - currentIndex;
-      if (effectiveIndex > numCards / 2) {
-        effectiveIndex -= numCards;
-      } else if (effectiveIndex <= -numCards / 2) {
-        effectiveIndex += numCards;
+// Increase arcRadius to accommodate larger cards
+const arcRadius = 800; // Adjust this value based on the new card size
+const arcAngle = 120; // Keep this the same or adjust as needed
+const visibleCardCount = 5; // Number of cards to show at once
+const cardAngleOffset = arcAngle / (visibleCardCount - 1);
+
+// Function to position cards
+function positionCards() {
+  cards.forEach((card, i) => {
+    let effectiveIndex = i - currentIndex;
+    if (effectiveIndex > numCards / 2) {
+      effectiveIndex -= numCards;
+    } else if (effectiveIndex <= -numCards / 2) {
+      effectiveIndex += numCards;
+    }
+    
+    let displayIndex;
+    if (effectiveIndex >= -Math.floor(visibleCardCount / 2) && effectiveIndex <= Math.floor(visibleCardCount / 2)) {
+      displayIndex = effectiveIndex;
+    } else {
+      displayIndex = 1000; // Hide card if outside visible range
+    }
+
+    let angle = 0;
+    let x = 0;
+    let y = 0;
+    let rotate = 0;
+    let scaleFactor = 0.9; // Adjust this to control the size of adjacent cards
+    let opacityFactor = 0.2; // Default opacity for adjacent cards
+    let zIndex = 1;
+
+    if (Math.abs(displayIndex) < 3) { // For the 5 visible cards
+      angle = displayIndex * cardAngleOffset;
+      const angleRad = angle * Math.PI / 180;
+      x = arcRadius * Math.sin(angleRad);
+      y = -arcRadius * Math.cos(angleRad) + arcRadius * 0.6; // Adjust Y position if needed
+      rotate = angle;
+      scaleFactor = 1 - Math.abs(displayIndex) * 0.1; // Adjust scaling for adjacent cards
+      opacityFactor = 1 - Math.abs(displayIndex) * 0.5; // Adjust opacity for adjacent cards
+      zIndex = 10 - Math.abs(displayIndex) * 2;
+
+      card.className = 'card';
+      if (displayIndex === 0 && effectiveIndex === 0) {
+        card.classList.add('active');
+        opacityFactor = 1; // Fully visible for the active card
+      } else if (Math.abs(displayIndex) === 1 && Math.abs(effectiveIndex) <= 1) {
+        card.classList.add('adjacent');
       }
-      let displayIndex;
-      if (effectiveIndex >= -Math.floor(visibleCardCount / 2) && effectiveIndex <= Math.floor(visibleCardCount / 2)) {
-        displayIndex = effectiveIndex;
-      } else {
-        displayIndex = 1000; // Hide card if outside visible range
-      }
-      let angle = 0;
-      let x = 0;
-      let y = 0;
-      let rotate = 0;
-      let scaleFactor = 0.8;
-      let opacityFactor = 0.2;
-      let zIndex = 1;
-      if (Math.abs(displayIndex) < 3) { // For the 5 visible cards
-        angle = displayIndex * cardAngleOffset;
-        const angleRad = angle * Math.PI / 180;
-        x = arcRadius * Math.sin(angleRad);
-        y = -arcRadius * Math.cos(angleRad) + arcRadius * 0.6;
-        rotate = angle;
-        scaleFactor = 1 - Math.abs(displayIndex) * 0.1;
-        opacityFactor = 1 - Math.abs(displayIndex) * 0.2;
-        zIndex = 10 - Math.abs(displayIndex) * 2;
+    } else {
+      scaleFactor = 0; // Hide card
+      opacityFactor = 0; // Fully transparent
+      zIndex = -1;
+      card.className = 'card';
+    }
 
-        card.className = 'card';
-        if (displayIndex === 0 && effectiveIndex === 0) {
-          card.classList.add('active');
-        } else if (Math.abs(displayIndex) === 1 && Math.abs(effectiveIndex) <= 1) {
-          card.classList.add('adjacent');
-        }
-      } else {
-        scaleFactor = 0;
-        opacityFactor = 0;
-        zIndex = -1;
-        card.className = 'card';
-      }
-      card.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotate}deg) scale(${scaleFactor})`;
-      card.style.opacity = Math.max(0, opacityFactor);
-      card.style.zIndex = zIndex;
-    });
-  }
+    // Apply transformations
+    card.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotate}deg) scale(${scaleFactor})`;
+    card.style.opacity = Math.max(0, opacityFactor);
+    card.style.zIndex = zIndex;
+  });
+}
 
-  function moveNext() {
-    currentIndex = (currentIndex + 1) % numCards;
-    positionCards();
-  }
-
-  function movePrev() {
-    currentIndex = (currentIndex - 1 + numCards) % numCards;
-    positionCards();
-  }
-
+// Automatic movement of cards
+let autoMoveInterval = setInterval(() => {
+  currentIndex = (currentIndex + 1) % numCards; // Move to the next card
   positionCards();
+}, 1500); // Change card every 1.5 seconds (1500 milliseconds)
+
+// Stop automatic movement on hover
+wrapper.addEventListener('mouseenter', () => {
+  clearInterval(autoMoveInterval);
+});
+
+// Resume automatic movement on mouse leave
+wrapper.addEventListener('mouseleave', () => {
+  autoMoveInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % numCards; // Move to the next card
+    positionCards();
+  }, 1500); // Change card every 1.5 seconds (1500 milliseconds)
+});
+
+// Swipe functionality for touch devices
+let startX = 0;
+let endX = 0;
+
+wrapper.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX; // Get the starting touch position
+});
+
+wrapper.addEventListener('touchmove', (e) => {
+  endX = e.touches[0].clientX; // Get the current touch position
+});
+
+wrapper.addEventListener('touchend', () => {
+  if (startX > endX + 50) {
+    // Swipe left
+    currentIndex = (currentIndex + 1) % numCards; // Move to the next card
+  } else if (startX < endX - 50) {
+    // Swipe right
+    currentIndex = (currentIndex - 1 + numCards) % numCards; // Move to the previous card
+  }
+  positionCards();
+});
+
+// Mouse drag functionality for desktop
+let isDragging = false;
+let dragStartX = 0;
+
+wrapper.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  dragStartX = e.clientX; // Get the starting mouse position
+  clearInterval(autoMoveInterval); // Stop automatic movement
+});
+
+wrapper.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    endX = e.clientX; // Get the current mouse position
+  }
+});
+
+wrapper.addEventListener('mouseup', () => {
+  if (isDragging) {
+    if (dragStartX > endX + 50) {
+      // Drag left
+      currentIndex = (currentIndex + 1) % numCards; // Move to the next card
+    } else if (dragStartX < endX - 50) {
+      // Drag right
+      currentIndex = (currentIndex - 1 + numCards) % numCards; // Move to the previous card
+    }
+    positionCards();
+    isDragging = false; // Reset dragging state
+  }
+});
+
+// Prevent default behavior for mouse leave
+wrapper.addEventListener('mouseleave', () => {
+  if (isDragging) {
+    isDragging = false; // Reset dragging state
+  }
+});
+
+// Initial call to positionCards to set up the carousel
+positionCards();
+
+
+
+
+
+  // Add event listeners for the arrows
+document.getElementById('nextArrow').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % numCards; // Move to the next card
+  positionCards();
+});
+
+// document.getElementById('prevArrow').addEventListener('click', () => {
+//   currentIndex = (currentIndex - 1 + numCards) % numCards; // Move to the previous card
+//   positionCards();
+// });
+
+
+
+
+//  // Carousel Functionality
+//  const imageUrls = [
+//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/fire2.0.jpg",
+//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/theyyambg.jpg",
+//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/fire.jpg",
+//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/h.jpg",
+//       "D:/saviskaarawebsite/assets/fire1.jpg",
+//       "D:/saviskaarawebsite/assets/fire2.jpg"
+
+//     ];
+    
+//     function createCarousel(id) {
+//       const carousel = document.getElementById(id);
+//       imageUrls.forEach(url => {
+//         const img = document.createElement("img");
+//         img.src = url;
+//         carousel.appendChild(img);
+//       });
+//     }
+    
+//     function startCarousel(carouselId, reverse = false) {
+//       const carousel = document.getElementById(carouselId);
+//       let index = 0;
+//       const images = carousel.children;
+//       function slide() {
+//         index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
+//         const offset = -index * 100;
+//         carousel.style.transform = translateX(${offset}%);
+//       }
+//       setInterval(slide, 3000);
+//     }
+    
+//     for (let i = 1; i <= 9; i++) {
+//       createCarousel(`carousel${i}`);
+//       startCarousel(`carousel${i}`, i % 2 === 0);
+//     }
+
+//     // Split Text Animation using SplitType and GSAP
+//     function runSplit() {
+//       const typeSplit = new SplitType(".split-word", {
+//         types: "lines, words"
+//       });
+//       document.querySelectorAll(".word").forEach((word) => {
+//         const mask = document.createElement("div");
+//         mask.classList.add("line-mask");
+//         word.appendChild(mask);
+//       });
+//       createAnimation();
+//     }
+//     runSplit();
+
+//     gsap.registerPlugin(ScrollTrigger);
+//     function createAnimation() {
+//       const allMasks = Array.from(document.querySelectorAll(".line-mask"));
+//       const tl = gsap.timeline({
+//         scrollTrigger: {
+//           trigger: ".split-word",
+//           start: "top 85%",
+//           end: "bottom center",
+//           scrub: 1
+//         }
+//       });
+//       tl.to(allMasks, {
+//         width: "0%",
+//         duration: 1,
+//         stagger: 0.5
+//       });
+//     }
+
+   
+   
+
+        function toggleMenu() {
+          const overlay = document.getElementById('menuOverlay');
+          overlay.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
+        }
+
+
+    //     // FAQ Toggle Function
+    // function toggleFAQ(id) {
+    //   let answer = document.getElementById(answer-${id});
+    //   let icon = document.getElementById(icon-${id});
+    //   if (answer.classList.contains("hidden")) {
+    //     answer.classList.remove("hidden");
+    //     icon.textContent = "⬆";
+    //   } else {
+    //     answer.classList.add("hidden");
+    //     icon.textContent = "⬇";
+    //   }
+    // }
 </script>
