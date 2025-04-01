@@ -176,11 +176,6 @@
   </section>
 
 
-
-
- 
-
-
 <!-- CARDS SECTION -->
 <section id="events" class="carousel-section">
   
@@ -207,9 +202,7 @@
       <div class="card" onclick="location.href='events.html?filter=la';" style="background-image: url('assets/leisuretime.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
         <p style="color: #fff; text-align: center;">TALENT TIME</p>
       </div>
-    </div>
-   
-    
+    </div> 
     <div class="controls">
       <button class="arrow" id="nextArrow">❯</button>
     </div>
@@ -261,6 +254,66 @@
           For enquiries, please contact the event team.
         </p>
       </div>
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(4)">
+          <span>Who can participate in Savishkaara'25?</span>
+          <svg id="icon-4" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </button>
+        <p id="answer-4" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+          Open to all.
+        </p>
+      </div>
+
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(5)">
+          <span> What is the schedule for the event?</span>
+          <svg id="icon-5" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </button>
+        <p id="answer-5" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+          Open to all.
+        </p>
+      </div>
+
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(6)">
+          <span> Is there a registration fee?</span>
+          <svg id="icon-6" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </button>
+        <p id="answer-6" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+          Open to all.
+        </p>
+      </div>
+
+
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(7)">
+          <span> How do I register for the event?</span>
+          <svg id="icon-7" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </button>
+        <p id="answer-7" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+          Open to all.
+        </p>
+      </div>
+
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(8)">
+          <span> When and where will the event take place? </span>
+          <svg id="icon-8" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </button>
+        <p id="answer-8" class="text-neutral-400 text-base mt-4 hidden transition-opacity duration-300">
+          Open to all.
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -279,49 +332,25 @@
       </h1>
       <div class="col-lg-6">
           <div class="container">
-              <a href="https://www.google.com/maps/place/Amrita+Vishwa+Vidyapeetham,+Kochi/" target="_blank">
-                  <div class="contact--lockup">
-                      <!-- Align the image to the left -->
-                      <div class="contact-image">
-                          <img src="D:/saviskaarawebsite/assets/map.jpg" alt="Background Image" class="background-img">
-                      </div>
-          
+              <div class="contact--lockup">
+                  <div class="contact-content">
+                      <!-- Clickable image with link -->
+                      <a href="https://maps.app.goo.gl/w4WZBERDzrXNvLVn8" target="_blank" class="contact-image">
+                          <img src="D:/saviskaarawebsite/assets/map.jpg" alt="Location Map" class="background-img">
+                      </a>
+                      <!-- Contact info -->
                       <div class="modal--information">
                           <p>Edappally North, Amrita Nagar, Brahmasthanam,<br> Kochi, Ernakulam, Kerala 682024</p>
-                          <a href="mailto:ouremail@gmail.com">ouremail@gmail.com</a>
-                          <a href="tel:+48126287560">+916238996266</a>
+                          <a href="savishkaara.amrita@gmail.com">savishkaara.amrita@gmail.com</a>
+                          <a href="tel:+916238996266">+916238996266</a>
                       </div>
-                      <button class="btn btn-blue" onclick="openLink('https://www.behance.net')">Behance</button>
-                      <button class="btn btn-pink" onclick="openLink('https://dribbble.com')">Dribbble</button>
-                      <button class="btn btn-contact" onclick="contactUs()">CONTACT US</button>
                   </div>
-              </a>
+              </div>
           </div>
       </div>
-  </div> 
-
-    </div>
-    
+  </div>
       
       </div>
-      <!-- Contact Details on the Right -->
-      <!--<div class="col-lg-6">
-        <div class="info-box">
-          <i class="bx bx-map"></i>
-          <h3>Our Address</h3>
-          <p>Edappally North, Amrita Nagar, Brahmasthanam,<br> Kochi, Ernakulam, Kerala 682024</p>
-        </div>
-        <div class="info-box">
-          <i class="bx bx-envelope"></i>
-          <h3>Email Us</h3>
-          <a href="mailto:iedc@kh.amrita.edu">iedc@kh.amrita.edu</a>
-        </div>
-        <div class="info-box">
-          <i class="bx bx-phone-call"></i>
-          <h3>Call Us</h3>
-          <a href="tel:‪+916238996266‬" style="text-decoration: none; color: inherit;">‪+91 6238996266‬</a>
-        </div>
-      </div>-->
     </div>
   </div>
 </section>
@@ -336,58 +365,11 @@
 <!-- FOOTER -->
 <footer class="custom-footer">
  
-    <div class="container">
-      
-        <div class="row">
-            <div class="col-md-6 rows">
-                <p>Department of Computer Science & IT</p>
-                <p>School of Computing</p>
-                <p>Amrita Vishwa Vidyapeetham, Kochi Campus</p>
-                <p><a href="https://maps.app.goo.gl/rHo9Xz543GKdYbUt6" >Brahmasthananm, Edappally North P.O.,
-                    Ernakulam-682024, Kerala.</a></p>
-                <p><a href="mailto:savishkaara@kh.amrita.edu" >Email: savishkaara@kh.amrita.edu</a></p>
-            </div>
-            <div class="col-md-6 rows">
-                <h3>Contact</h3>
-                <p>Kiran S<a href="tel:9446565036" > +919446565036</a></p>
-                <p>Vaishnav B <a href="tel:6238996266" > +916238996266</a></p>
-                <p>Sabhyam Mishra <a href="tel:9633149771" > +919633149771</a></p>
-                <p>Erick Xavier<a href="tel:6238314481" > +916238314481</a></p>
-                <p>Anamika Gokul<a href="tel:8138916801" > +918138916801</a></p>
-                <p>Navya P G<a href="tel:8075000213" > +918075000213</a></p>
-                
-                <p></p>
-            </div>
-
-            <div class="col-md-6 rows mar">
-                <h2 id="h5_id">In Association with</h2>
-                    <ul>
-                        <span><img class="sample-image-footer" src="images\ipl without text.png" width="60px" height="35px" display="block" text-align="right">
-                            <img class="sample-image1-footer" src="images\iedc white.png" width="110px" height="50px" display="block"></span>
-                            <span><img class="sample-image-footer" src="images\CSI.PNG" width="60px" height="60px" display="block" text-align="right"></span>
-
-                              <img class="sample-image1-footer" src="images\sicwhite.png" width="120px" height="70px" display="block">
-                               <img class="sample-image1-footer" src="images\IIC white.png" width="100px" height="50px" display="block">
-                    </ul>
-            </div>
-            
-        </div>
-    </div>
-
-        </div>
-    </div> 
-
-  
-            </div>
-        </div>
-    </div>
 
 
   <p>&copy; 2025 Saavishkaara. All rights reserved.</p>
   <div class="footer-links">
     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </footer>
 

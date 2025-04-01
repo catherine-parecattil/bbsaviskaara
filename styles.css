@@ -716,144 +716,114 @@ l2 {
 /* map */
 
 /* Fullscreen Background Image */
-
-/* Container Styling */
 .contact--lockup {
-    width: 350px;
-    max-width: 90%;
+    width: 100%;
+    max-width: 1000px;
     background-color: rgba(0, 0, 0, 0.85);
-    padding: 35px;
-    text-align: center;
+    padding: 40px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     color: white;
     border-radius: 10px;
     z-index: 2;
-    margin-right: 5%;
+    margin: 0 auto;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transitions */
+    transform-style: preserve-3d; /* Enable 3D transformations */
 }
 
-/* Image Container */
+/* Tilt effect on hover */
+.contact--lockup:hover {
+    transform: perspective(1000px) rotateX(3deg) rotateY(3deg); /* Subtle 3D tilt */
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3); /* Enhanced shadow */
+}
+
+.contact-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    transition: transform 0.5s ease; /* Match parent transition */
+}
+
 .contact-image {
-    width: 100%;
-    height: 200px; /* You can adjust the height as needed */
-    margin-bottom: 15px;
-    position: relative;
+    width: 50%;
+    min-width: 300px;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-/* Image Styling */
+.contact-image:hover {
+    transform: scale(1.02) translateZ(10px); /* Enhanced hover with Z-axis */
+}
+
 .contact-image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the div area */
-    border-radius: 10px; /* Optional: rounded corners */
-}
-
-/* Modal Information Styling */
-.modal--information p,
-.modal--information a {
-    display: block;
-    margin: 10px 0;
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-}
-
-/* Buttons Styling */
-.btn {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-blue { background: #007bff; }
-.btn-blue:hover { background: #0056b3; }
-
-.btn-pink { background: #ff4081; }
-.btn-pink:hover { background: #c60055; }
-
-.btn-contact { background: #007bff; }
-.btn-contact:hover { background: #0056b3; }
-
-/* Mobile Responsive */
-@media (max-width: 767px) {
-    body {
-        justify-content: center; /* Center the box on smaller screens */
-    }
-    .contact--lockup {
-        width: 90%;
-        margin-right: 0;
-    }
-}
-
-
-
-/* Centering Container */
-.container {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-/* Contact Info Box */
-.contact--lockup {
-    width: 350px;
-    max-width: 90%;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 35px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    color: white;
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
+    max-height: 350px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
-/* Information Text & Links */
+.contact-image:hover img {
+    border-color: #69491C;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Added shadow to image */
+}
+
+.modal--information {
+    width: 50%;
+    text-align: right;
+    padding: 0 15px;
+    transition: transform 0.5s ease;
+}
+
 .modal--information p,
 .modal--information a {
     display: block;
-    margin: 10px 0;
+    margin: 15px 0;
     text-decoration: none;
     color: white;
     font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s ease;
 }
 
-/* Buttons Styling */
-.btn {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+.modal--information a:hover {
+    color: #69491C;
+    transform: translateX(-5px); /* Slight movement on hover */
 }
-
-.btn-blue { background: #007bff; }
-.btn-blue:hover { background: #0056b3; }
-
-.btn-pink { background: #ff4081; }
-.btn-pink:hover { background: #c60055; }
-
-.btn-contact { background: #007bff; }
-.btn-contact:hover { background: #0056b3; }
 
 /* Mobile Responsive */
 @media (max-width: 767px) {
+    .contact--lockup:hover {
+        transform: none; /* Disable tilt on mobile */
+    }
+    
+    /* Rest of mobile styles remain the same */
     .contact--lockup {
-        width: 90%;
+        width: 95%;
+        padding: 25px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .contact-image,
+    .modal--information {
+        width: 100%;
+    }
+
+    .modal--information {
+        text-align: center;
+    }
+
+    .contact-image {
+        min-width: unset;
+    }
+
+    .contact-image img {
+        max-height: 280px;
     }
 }
-
