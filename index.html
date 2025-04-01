@@ -17,8 +17,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- MENU BUTTON -->
+<!-- MENU BUTTON (Hamburger Icon) -->
 <button class="menu-button" onclick="toggleMenu()">
   <span></span>
   <span></span>
@@ -26,43 +25,33 @@
 </button>
 
 <!-- MENU OVERLAY -->
-<div class="menu-overlay" id="menuOverlay">
+<div class="menu-overlay hidden" id="menuOverlay">
   <ul class="menu-list">
-    <li>HOME</li>
-    <li>ABOUT</li>
-    <li>EVENTS</li>
-    <li>FAQ</li>
-    <li>CONTACT US</li>
+    <li><a href="#home" onclick="closeMenu()">HOME</a></li>
+    <li><a href="#section-quote" onclick="closeMenu()">ABOUT</a></li>
+    <li><a href="#events" onclick="closeMenu()">EVENTS</a></li>
+    <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+    <li><a href="#contact" onclick="closeMenu()">CONTACT US</a></li>
   </ul>
 </div>
 
 
-  <!-- HERO / LANDING SECTION (Unchanged) -->
-  <header class="hero-section relative h-screen bg-black flex items-center justify-center">
-    <div class="carousel-wrapper relative w-full">
-      <div class="carousel-row z-20 bg-black pb-5" style="transform: rotate(3deg) translateY(5.1rem);">
-        <div class="carousel-container"><div id="carousel1" class="carousel"></div></div>
-        <div class="carousel-container"><div id="carousel2" class="carousel"></div></div>
-        <div class="carousel-container"><div id="carousel3" class="carousel"></div></div>
-      </div>
-      <div class="carousel-row z-10 bg-black pb-5" style="transform: rotate(-3deg) translateY(-10.1rem);">
-        <div class="carousel-container"><div id="carousel4" class="carousel"></div></div>
-        <div class="carousel-container"><div id="carousel5" class="carousel"></div></div>
-        <div class="carousel-container"><div id="carousel6" class="carousel"></div></div>
-      </div>
-      <div class="carousel-row bg-black pb-5" style="transform: rotate(2deg) translateY(-18.1rem);">
-        <div class="carousel-container"><div id="carousel7" class="carousel"></div></div>
-        <div class="carousel-container"><div id="carousel8" class="carousel"></div></div>
-        <div class="carousel-container"><div id="carousel9" class="carousel"></div></div>
-      </div>
+<!-- HERO / LANDING SECTION -->
+<header id="home" class="hero-section relative h-screen flex items-center justify-center">
+  <!-- Background Image -->
+  <div class="hero-bg absolute inset-0" style="background-image: url('assets/bg.jpg'); background-size: cover; background-position: center;"></div>
+  <!-- Optional Overlay (to darken the image) -->
+  <div class="hero-overlay absolute inset-0 bg-black opacity-50"></div>
+  <!-- Overlay Title -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-30 hero-text-container">
+    <h1 class="hero-title">SAVISHKAARA 
+      <span class="hero-subtitle">2025</span>
+    </h1>
+    <BR><BR>
+    <h1 class="hero-tile">APRIL 10,11</h1>
+  </div>
+</header>
 
-      <!-- Overlay Title -->
-      <div class="absolute inset-0 flex flex-col items-center justify-center text-white z-30">
-        <h1 class="hero-title">SAVISHKAARA</h1>
-        <h2 class="hero-subtitle">2025</h2>
-      </div>
-    </div>
-  </header>
 
   <!-- Quote Section with Enhanced Animation -->
   <section
@@ -86,31 +75,82 @@
         <div class="spacer-medium" style="height: 40px;"></div>
 
         <!-- Main Quote Container -->
-        <div class="container-small is-quote" style="margin: 0 auto; max-width: 900px;">
-          <div class="about-content-block" style="position: relative;">
-            <!-- Animated Quote Text -->
-            <div class="split-word quote-text">
-              SAVISHKAARA, AMRITA VISHWA VIDYAPEETHAM'S PREMIER TECH FEST, IS A HUB OF INNOVATION AND CREATIVITY.
-              <br /><br />
-              FROM AI HACKATHONS TO CUTTING-EDGE TECH TALKS, IT UNITES STUDENTS, ENTREPRENEURS, AND LEADERS TO SHAPE THE FUTURE.
-              <br /><br />
-              EXPERIENCE THE THRILL OF COLLABORATION AND THE PASSION FOR DISCOVERY THAT DEFINES THIS EVENT.
-              <br /><br />
-              WHERE VISIONARY THINKERS EXPLORE NEW HORIZONS, TURNING INNOVATION INTO ACTION AND REDEFINING THE POSSIBLE.
+         
+        <section class="quote-container" id="quote-container" >
+          
+          <div class="container-small is-quote">
+            <div class="about-content-block">
+              <p class="split-word quote-text">
+                SAVISHKAARA ,AMRITA VISHWA VIDYAPEETHAM'S TECH FEST, IS A HUB OF INNOVATION AND CREATIVITY.FROM AI HACKATHONS TO CUTTING-EDGE TECH TALKS, IT UNITES STUDENTS, ENTREPRENEURS, AND LEADERS TO SHAPE THE FUTURE.EXPERIENCE THE THRILL OF COLLABORATION AND THE PASSION FOR DISCOVERY THAT DEFINES THIS EVENT.WHERE VISIONARY THINKERS EXPLORE NEW HORIZONS, TURNING INNOVATION INTO ACTION AND REDEFINING THE POSSIBLE.
+              </p>
             </div>
           </div>
+          <div class="spacer-medium"></div>
+        </section>
+    
+
+              <!-- TECHFEST LOGOS  -->
+      <section class="bg-black py-6 -mt-4">
+        <div class="flex flex-wrap justify-center items-center gap-10">
+          <!-- Logo 1 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/iedcbgremoved-whiteText.png" 
+              alt="IEDC"  
+              class="max-w-[60px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 2 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/savishkaara.PNG" 
+              alt="Savishkaara"  
+              class="max-w-[120px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 3 -->
+          <div class="logo-item">
+            <img 
+              src="assets/amrita-vishwa-vidyapeetham-university-logo-white-version.svg" 
+              alt="Amrita"  
+              class="max-w-[140px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 4 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/IIC/IIC-removebg-preview-Increasedcolor.png"  
+              alt="IIC"  
+              class="max-w-[120px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 5 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/sicwhite.png" 
+              alt="SIC" 
+              class="max-w-[120px] transition duration-300 hover:scale-105"
+            />
+          </div>
+          <!-- Logo 6 -->
+          <div class="logo-item">
+            <img 
+              src="assets/2024/CSI.PNG" 
+              alt="CSI" 
+              class="max-w-[70px] transition duration-300 hover:scale-105"
+            />
+          </div>
         </div>
-        
-        <div class="spacer-medium" style="height: 40px;"></div>
+      </section>
 
         <!-- Bottom Decor -->
-        <div class="quote_decor-icons" style="display: flex; align-items: center; justify-content: center;">
+        <!-- <div class="quote_decor-icons" style="display: flex; align-items: center; justify-content: center;">
           <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671a4c5b86c9e34860c28b68_icon-star.svg" loading="lazy" alt="" class="icon_star is-1" style="width: 30px; margin-right: 10px;" />
           <div class="border-horizontal-wrap" style="flex: 1;">
-            <div class="border-horizontal" style="border-top: 2px solid #fff; opacity: 0.4; margin: 0 10px;"></div>
+            <div class="border-horizontal" style="border-top: 2px solid #ffffff; opacity: 0.4; margin: 0 10px;"></div>
           </div>
           <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671a4c5b86c9e34860c28b68_icon-star.svg" loading="lazy" alt="" class="icon_star is-2" style="width: 30px; margin-left: 10px;" />
-        </div>
+        </div> -->
 
         <!-- Hidden/Placeholder Elements -->
         <p class="text-qoute-bottom opacity-0 pointer-events-none">1</p>
@@ -128,10 +168,10 @@
 
     <!-- Absolute Dots on Sides -->
     <div data-hide-on="tablet-mobile" class="absolute flex-quote-shape-left hide-adaptives" style="top: 50%; left: 0; transform: translateY(-50%);">
-      <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671b7a980f59a762ad368a4f_shape_quote-dots.svg" loading="lazy" data-w-id="0cac3221-0c30-0b1d-4c6a-8c85d4e372c8" alt="" class="image" style="width: 80px; opacity: 0.3;" />
+      <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671b7a980f59a762ad368a4f_shape_quote-dots.svg" loading="lazy" data-w-id="0cac3221-0c30-0b1d-4c6a-8c85d4e372c8" alt="" class="image" style="width: 200px; opacity: 0.3;" />
     </div>
     <div data-hide-on="tablet-mobile" class="absolute flex-quote-shape-right hide-adaptives" style="top: 50%; right: 0; transform: translateY(-50%);">
-      <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671b7a980f59a762ad368a4f_shape_quote-dots.svg" loading="lazy" data-w-id="7524a5ed-24e8-1d7a-5912-31d4feb66580" alt="" class="image" style="width: 80px; opacity: 0.3;" />
+      <img src="https://cdn.prod.website-files.com/6718c8afa78e156621f3a2ed/671b7a980f59a762ad368a4f_shape_quote-dots.svg" loading="lazy" data-w-id="7524a5ed-24e8-1d7a-5912-31d4feb66580" alt="" class="image" style="width: 200px; opacity: 0.3;" />
     </div>
   </section>
 
@@ -139,97 +179,55 @@
 
 
  
-      <!-- TECHFEST LOGOS  -->
-<section class="bg-black py-6 -mt-4">
-  <div class="flex flex-wrap justify-center items-center gap-10">
-    <!-- Logo 1 -->
-    <div class="logo-item">
-      <img 
-        src="assets/2024/iedcbgremoved-whiteText.png" 
-        alt="IEDC"  
-        class="max-w-[60px] transition duration-300 hover:scale-105"
-      />
-    </div>
-    <!-- Logo 2 -->
-    <div class="logo-item">
-      <img 
-        src="assets/2024/savishkaara.PNG" 
-        alt="Savishkaara"  
-        class="max-w-[120px] transition duration-300 hover:scale-105"
-      />
-    </div>
-    <!-- Logo 3 -->
-    <div class="logo-item">
-      <img 
-        src="assets/amrita-vishwa-vidyapeetham-university-logo-white-version.svg" 
-        alt="Amrita"  
-        class="max-w-[140px] transition duration-300 hover:scale-105"
-      />
-    </div>
-    <!-- Logo 4 -->
-    <div class="logo-item">
-      <img 
-        src="assets/2024/IIC/IIC-removebg-preview-Increasedcolor.png"  
-        alt="IIC"  
-        class="max-w-[120px] transition duration-300 hover:scale-105"
-      />
-    </div>
-    <!-- Logo 5 -->
-    <div class="logo-item">
-      <img 
-        src="assets/2024/sicwhite.png" 
-        alt="SIC" 
-        class="max-w-[120px] transition duration-300 hover:scale-105"
-      />
-    </div>
-    <!-- Logo 6 -->
-    <div class="logo-item">
-      <img 
-        src="assets/2024/CSI.PNG" 
-        alt="CSI" 
-        class="max-w-[70px] transition duration-300 hover:scale-105"
-      />
-    </div>
-  </div>
-</section>
+
 
 <!-- CARDS SECTION -->
-<section class="carousel-section">
+<section id="events" class="carousel-section">
+  
   <div class="carousel-container">
+    <h1 class="text-6xl font-bold text-left text-neutral-200 mt-[-100px] mb-6 border-b-4 border-[#69491C] pb-2 ">
+      EVENTS
+    </h1>
     <div class="cards-wrapper" id="cardsWrapper">
-      <div class="card" onclick="location.href='techxpo.html';" style="background-image: url('D:/saviskaarawebsite/assets/techxpo.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">TECHXPO</p>
+      <div class="card" onclick="location.href='events.html?filter=ss';" style="background-image: url('assets/techxpo.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">INCEPTION OF SYMPO</p>
       </div>
-      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/techsynergy.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">TECH SYNERGY</p>
+      <div class="card" onclick="location.href='events.html?filter=tech';" style="background-image: url('assets/techsynergy.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">TECHNICAL EVENTS</p>
       </div>
-      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/unplugged.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">UNPLUGGED</p>
+      <div class="card" onclick="location.href='events.html?filter=techxp';" style="background-image: url('assets/unplugged.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">NON TECHNICAL EVENTS</p>
       </div>
-      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/mysticquest.png');display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">MYSTIC QUEST</p>
+      <div class="card" onclick="location.href='events.html?filter=legends';" style="background-image: url('assets/mysticquest.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">TECHNICAL EXPO</p>
       </div>
-      <div class="card" style="background-image: url('D:/saviskaarawebsite/assets/handsontech.png');display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
-        <p style="color: #fff; text-align: center;">HANDS-ON-TECH</p>
+      <div class="card" onclick="location.href='events.html?filter=tt';" style="background-image: url('assets/handsontech.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">LEISURE ACTIVITY</p>
+      </div>
+      <div class="card" onclick="location.href='events.html?filter=la';" style="background-image: url('assets/leisuretime.png'); display: flex; flex-direction: column; justify-content: flex-end; padding: 15px;">
+        <p style="color: #fff; text-align: center;">TALENT TIME</p>
       </div>
     </div>
+   
+    
     <div class="controls">
-      
       <button class="arrow" id="nextArrow">❯</button>
     </div>
   </div>
 </section>
 
+
+
 <!-- FAQ -->
-<div class="bg-black text-white flex justify-center items-center py-12">
+<div id="faq" class="bg-black text-white flex justify-center items-center py-12">
   <div class="w-full max-w-7xl px-8 lg:px-24">
-    <h1 class="text-6xl font-bold text-left text-neutral-200 mb-10 border-b-4 border-orange-500 pb-2">
+    <h1 class="text-6xl font-bold text-left text-neutral-200 mb-10 border-b-4 border-[#69491C] pb-2">
       FAQs
     </h1>
     <div class="space-y-8">
       <!-- FAQ Item -->
-      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
-        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(1)">
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(1)">
           <span>When is Savishkaara'25?</span>
           <svg id="icon-1" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 9l6 6 6-6"></path>
@@ -240,8 +238,8 @@
         </p>
       </div>
       <!-- FAQ Item -->
-      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
-        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(2)">
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(2)">
           <span>Where is Savishkaara'25 held?</span>
           <svg id="icon-2" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 9l6 6 6-6"></path>
@@ -252,8 +250,8 @@
         </p>
       </div>
       <!-- FAQ Item -->
-      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-orange-500/50">
-        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-orange-400 transition-colors" onclick="toggleFAQ(3)">
+      <div class="bg-neutral-900 p-6 rounded-lg shadow-lg transition-all hover:shadow-[#69491C]/50">
+        <button class="flex justify-between items-center w-full text-lg font-semibold text-neutral-300 hover:text-[#69491C] transition-colors" onclick="toggleFAQ(3)">
           <span>Who do I contact for enquiries?</span>
           <svg id="icon-3" class="w-6 h-6 text-neutral-300 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
             <path d="M6 9l6 6 6-6"></path>
@@ -267,8 +265,124 @@
   </div>
 </div>
 
+
+
+<!-- ======= Contact Section ======= -->
+<div id="faq" class="bg-black text-white flex justify-center items-center py-12">
+<div class="w-full max-w-7xl px-8 lg:px-24">
+<br><br><br><br><br>
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h1 class="text-6xl font-bold text-left text-neutral-200 mt-[-100px] mb-6 border-b-4 border-[#69491C] pb-2">
+          CONTACT US
+      </h1>
+      <div class="col-lg-6">
+          <div class="container">
+              <a href="https://www.google.com/maps/place/Amrita+Vishwa+Vidyapeetham,+Kochi/" target="_blank">
+                  <div class="contact--lockup">
+                      <!-- Align the image to the left -->
+                      <div class="contact-image">
+                          <img src="D:/saviskaarawebsite/assets/map.jpg" alt="Background Image" class="background-img">
+                      </div>
+          
+                      <div class="modal--information">
+                          <p>Edappally North, Amrita Nagar, Brahmasthanam,<br> Kochi, Ernakulam, Kerala 682024</p>
+                          <a href="mailto:ouremail@gmail.com">ouremail@gmail.com</a>
+                          <a href="tel:+48126287560">+916238996266</a>
+                      </div>
+                      <button class="btn btn-blue" onclick="openLink('https://www.behance.net')">Behance</button>
+                      <button class="btn btn-pink" onclick="openLink('https://dribbble.com')">Dribbble</button>
+                      <button class="btn btn-contact" onclick="contactUs()">CONTACT US</button>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div> 
+
+    </div>
+    
+      
+      </div>
+      <!-- Contact Details on the Right -->
+      <!--<div class="col-lg-6">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <h3>Our Address</h3>
+          <p>Edappally North, Amrita Nagar, Brahmasthanam,<br> Kochi, Ernakulam, Kerala 682024</p>
+        </div>
+        <div class="info-box">
+          <i class="bx bx-envelope"></i>
+          <h3>Email Us</h3>
+          <a href="mailto:iedc@kh.amrita.edu">iedc@kh.amrita.edu</a>
+        </div>
+        <div class="info-box">
+          <i class="bx bx-phone-call"></i>
+          <h3>Call Us</h3>
+          <a href="tel:‪+916238996266‬" style="text-decoration: none; color: inherit;">‪+91 6238996266‬</a>
+        </div>
+      </div>-->
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!--End Contact Section -->
+
+
+
+
 <!-- FOOTER -->
 <footer class="custom-footer">
+ 
+    <div class="container">
+      
+        <div class="row">
+            <div class="col-md-6 rows">
+                <p>Department of Computer Science & IT</p>
+                <p>School of Computing</p>
+                <p>Amrita Vishwa Vidyapeetham, Kochi Campus</p>
+                <p><a href="https://maps.app.goo.gl/rHo9Xz543GKdYbUt6" >Brahmasthananm, Edappally North P.O.,
+                    Ernakulam-682024, Kerala.</a></p>
+                <p><a href="mailto:savishkaara@kh.amrita.edu" >Email: savishkaara@kh.amrita.edu</a></p>
+            </div>
+            <div class="col-md-6 rows">
+                <h3>Contact</h3>
+                <p>Kiran S<a href="tel:9446565036" > +919446565036</a></p>
+                <p>Vaishnav B <a href="tel:6238996266" > +916238996266</a></p>
+                <p>Sabhyam Mishra <a href="tel:9633149771" > +919633149771</a></p>
+                <p>Erick Xavier<a href="tel:6238314481" > +916238314481</a></p>
+                <p>Anamika Gokul<a href="tel:8138916801" > +918138916801</a></p>
+                <p>Navya P G<a href="tel:8075000213" > +918075000213</a></p>
+                
+                <p></p>
+            </div>
+
+            <div class="col-md-6 rows mar">
+                <h2 id="h5_id">In Association with</h2>
+                    <ul>
+                        <span><img class="sample-image-footer" src="images\ipl without text.png" width="60px" height="35px" display="block" text-align="right">
+                            <img class="sample-image1-footer" src="images\iedc white.png" width="110px" height="50px" display="block"></span>
+                            <span><img class="sample-image-footer" src="images\CSI.PNG" width="60px" height="60px" display="block" text-align="right"></span>
+
+                              <img class="sample-image1-footer" src="images\sicwhite.png" width="120px" height="70px" display="block">
+                               <img class="sample-image1-footer" src="images\IIC white.png" width="100px" height="50px" display="block">
+                    </ul>
+            </div>
+            
+        </div>
+    </div>
+
+        </div>
+    </div> 
+
+  
+            </div>
+        </div>
+    </div>
+
+
   <p>&copy; 2025 Saavishkaara. All rights reserved.</p>
   <div class="footer-links">
     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -277,265 +391,7 @@
   </div>
 </footer>
 
-<script>
 
-// Carousel JavaScript for Cards
-// Carousel JavaScript for Cards
-const wrapper = document.getElementById("cardsWrapper");
-let cards = Array.from(document.querySelectorAll(".card"));
-const numCards = cards.length;
-let currentIndex = 0;
-
-// Increase arcRadius to accommodate larger cards
-const arcRadius = 800; // Adjust this value based on the new card size
-const arcAngle = 120; // Keep this the same or adjust as needed
-const visibleCardCount = 5; // Number of cards to show at once
-const cardAngleOffset = arcAngle / (visibleCardCount - 1);
-
-// Function to position cards
-function positionCards() {
-  cards.forEach((card, i) => {
-    let effectiveIndex = i - currentIndex;
-    if (effectiveIndex > numCards / 2) {
-      effectiveIndex -= numCards;
-    } else if (effectiveIndex <= -numCards / 2) {
-      effectiveIndex += numCards;
-    }
-    
-    let displayIndex;
-    if (effectiveIndex >= -Math.floor(visibleCardCount / 2) && effectiveIndex <= Math.floor(visibleCardCount / 2)) {
-      displayIndex = effectiveIndex;
-    } else {
-      displayIndex = 1000; // Hide card if outside visible range
-    }
-
-    let angle = 0;
-    let x = 0;
-    let y = 0;
-    let rotate = 0;
-    let scaleFactor = 0.9; // Adjust this to control the size of adjacent cards
-    let opacityFactor = 0.2; // Default opacity for adjacent cards
-    let zIndex = 1;
-
-    if (Math.abs(displayIndex) < 3) { // For the 5 visible cards
-      angle = displayIndex * cardAngleOffset;
-      const angleRad = angle * Math.PI / 180;
-      x = arcRadius * Math.sin(angleRad);
-      y = -arcRadius * Math.cos(angleRad) + arcRadius * 0.6; // Adjust Y position if needed
-      rotate = angle;
-      scaleFactor = 1 - Math.abs(displayIndex) * 0.1; // Adjust scaling for adjacent cards
-      opacityFactor = 1 - Math.abs(displayIndex) * 0.5; // Adjust opacity for adjacent cards
-      zIndex = 10 - Math.abs(displayIndex) * 2;
-
-      card.className = 'card';
-      if (displayIndex === 0 && effectiveIndex === 0) {
-        card.classList.add('active');
-        opacityFactor = 1; // Fully visible for the active card
-      } else if (Math.abs(displayIndex) === 1 && Math.abs(effectiveIndex) <= 1) {
-        card.classList.add('adjacent');
-      }
-    } else {
-      scaleFactor = 0; // Hide card
-      opacityFactor = 0; // Fully transparent
-      zIndex = -1;
-      card.className = 'card';
-    }
-
-    // Apply transformations
-    card.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotate}deg) scale(${scaleFactor})`;
-    card.style.opacity = Math.max(0, opacityFactor);
-    card.style.zIndex = zIndex;
-  });
-}
-
-// Automatic movement of cards
-let autoMoveInterval = setInterval(() => {
-  currentIndex = (currentIndex + 1) % numCards; // Move to the next card
-  positionCards();
-}, 1500); // Change card every 1.5 seconds (1500 milliseconds)
-
-// Stop automatic movement on hover
-wrapper.addEventListener('mouseenter', () => {
-  clearInterval(autoMoveInterval);
-});
-
-// Resume automatic movement on mouse leave
-wrapper.addEventListener('mouseleave', () => {
-  autoMoveInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % numCards; // Move to the next card
-    positionCards();
-  }, 1500); // Change card every 1.5 seconds (1500 milliseconds)
-});
-
-// Swipe functionality for touch devices
-let startX = 0;
-let endX = 0;
-
-wrapper.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX; // Get the starting touch position
-});
-
-wrapper.addEventListener('touchmove', (e) => {
-  endX = e.touches[0].clientX; // Get the current touch position
-});
-
-wrapper.addEventListener('touchend', () => {
-  if (startX > endX + 50) {
-    // Swipe left
-    currentIndex = (currentIndex + 1) % numCards; // Move to the next card
-  } else if (startX < endX - 50) {
-    // Swipe right
-    currentIndex = (currentIndex - 1 + numCards) % numCards; // Move to the previous card
-  }
-  positionCards();
-});
-
-// Mouse drag functionality for desktop
-let isDragging = false;
-let dragStartX = 0;
-
-wrapper.addEventListener('mousedown', (e) => {
-  isDragging = true;
-  dragStartX = e.clientX; // Get the starting mouse position
-  clearInterval(autoMoveInterval); // Stop automatic movement
-});
-
-wrapper.addEventListener('mousemove', (e) => {
-  if (isDragging) {
-    endX = e.clientX; // Get the current mouse position
-  }
-});
-
-wrapper.addEventListener('mouseup', () => {
-  if (isDragging) {
-    if (dragStartX > endX + 50) {
-      // Drag left
-      currentIndex = (currentIndex + 1) % numCards; // Move to the next card
-    } else if (dragStartX < endX - 50) {
-      // Drag right
-      currentIndex = (currentIndex - 1 + numCards) % numCards; // Move to the previous card
-    }
-    positionCards();
-    isDragging = false; // Reset dragging state
-  }
-});
-
-// Prevent default behavior for mouse leave
-wrapper.addEventListener('mouseleave', () => {
-  if (isDragging) {
-    isDragging = false; // Reset dragging state
-  }
-});
-
-// Initial call to positionCards to set up the carousel
-positionCards();
-
-
-
-
-
-  // Add event listeners for the arrows
-document.getElementById('nextArrow').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % numCards; // Move to the next card
-  positionCards();
-});
-
-// document.getElementById('prevArrow').addEventListener('click', () => {
-//   currentIndex = (currentIndex - 1 + numCards) % numCards; // Move to the previous card
-//   positionCards();
-// });
-
-
-
-
-//  // Carousel Functionality
-//  const imageUrls = [
-//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/fire2.0.jpg",
-//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/theyyambg.jpg",
-//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/fire.jpg",
-//       "C:/Users/chinm/OneDrive/Desktop/savishkaara/bbsaviskaara/assets/h.jpg",
-//       "D:/saviskaarawebsite/assets/fire1.jpg",
-//       "D:/saviskaarawebsite/assets/fire2.jpg"
-
-//     ];
-    
-//     function createCarousel(id) {
-//       const carousel = document.getElementById(id);
-//       imageUrls.forEach(url => {
-//         const img = document.createElement("img");
-//         img.src = url;
-//         carousel.appendChild(img);
-//       });
-//     }
-    
-//     function startCarousel(carouselId, reverse = false) {
-//       const carousel = document.getElementById(carouselId);
-//       let index = 0;
-//       const images = carousel.children;
-//       function slide() {
-//         index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
-//         const offset = -index * 100;
-//         carousel.style.transform = translateX(${offset}%);
-//       }
-//       setInterval(slide, 3000);
-//     }
-    
-//     for (let i = 1; i <= 9; i++) {
-//       createCarousel(`carousel${i}`);
-//       startCarousel(`carousel${i}`, i % 2 === 0);
-//     }
-
-//     // Split Text Animation using SplitType and GSAP
-//     function runSplit() {
-//       const typeSplit = new SplitType(".split-word", {
-//         types: "lines, words"
-//       });
-//       document.querySelectorAll(".word").forEach((word) => {
-//         const mask = document.createElement("div");
-//         mask.classList.add("line-mask");
-//         word.appendChild(mask);
-//       });
-//       createAnimation();
-//     }
-//     runSplit();
-
-//     gsap.registerPlugin(ScrollTrigger);
-//     function createAnimation() {
-//       const allMasks = Array.from(document.querySelectorAll(".line-mask"));
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: ".split-word",
-//           start: "top 85%",
-//           end: "bottom center",
-//           scrub: 1
-//         }
-//       });
-//       tl.to(allMasks, {
-//         width: "0%",
-//         duration: 1,
-//         stagger: 0.5
-//       });
-//     }
-
-   
-   
-
-        function toggleMenu() {
-          const overlay = document.getElementById('menuOverlay');
-          overlay.classList.toggle('active'); // Toggle the 'active' class to show/hide the menu
-        }
-
-
-    //     // FAQ Toggle Function
-    // function toggleFAQ(id) {
-    //   let answer = document.getElementById(answer-${id});
-    //   let icon = document.getElementById(icon-${id});
-    //   if (answer.classList.contains("hidden")) {
-    //     answer.classList.remove("hidden");
-    //     icon.textContent = "⬆";
-    //   } else {
-    //     answer.classList.add("hidden");
-    //     icon.textContent = "⬇";
-    //   }
-    // }
-</script>
+<script src="main.js"></script>
+</body>
+</html>

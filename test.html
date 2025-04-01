@@ -3,90 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autoplay Carousel</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Continuous Image Carousel</title>
     <style>
-        .carousel-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .carousel-row {
-            display: flex;
-            gap: 20px;
+        body {
+            background: linear-gradient(135deg, #ff0080, #ff6600);
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
         }
         .carousel-container {
-            overflow: hidden;
             width: 100%;
-            max-width: 800px;
+            overflow: hidden;
             position: relative;
+            padding: 20px 0;
         }
         .carousel {
             display: flex;
             transition: transform 0.5s ease-in-out;
+            will-change: transform;
+            position: relative;
+            left: 0;
         }
-        .carousel img {
-            min-width: 100%;
-            height: 400px;
+        .box {
+            width: 200px; /* Width of each box */
+            height: 150px; /* Height of each box */
+            border-radius: 10px;
+            margin: 0 5px; /* Space between boxes */
+            overflow: hidden; /* Hide overflow */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1); /* Optional background for boxes */
+        }
+        .box img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     </style>
-</head> 
-<bodyclass="flex items-center justify-center h-screen bg-black">
-    <div class="carousel-wrapper">
-        <div class="carousel-row z-20 bg-black pb-5" style="transform: rotate(3deg) translateY(5.1rem); ">
-            <div class="carousel-container"><div id="carousel1" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel2" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel3" class="carousel"></div></div>
-        </div>
-        <div class="carousel-row z-10 bg-black pb-5" style="transform: rotate(-3deg) translateY(-10.1rem);">
-            <div class="carousel-container"><div id="carousel4" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel5" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel6" class="carousel"></div></div>
-        </div>
-        <div class="carousel-row bg-black pb-5" style="transform: rotate(2deg) translateY(-18.1rem);">
-            <div class="carousel-container"><div id="carousel7" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel8" class="carousel"></div></div>
-            <div class="carousel-container"><div id="carousel9" class="carousel"></div></div>
+</head>
+<body>
+    <h1 class="title">Continuous Image Carousel</h1>
+    
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <div class="box"><img src="https://storage.googleapis.com/a1aa/image/FZt3uw2L3kxzd9pAu0gituOFyP7kECT33-nzp_AscAg.jpg" alt="Image 1"></div>
+            <div class="box"><img src="https://storage.googleapis.com/a1aa/image/keOqjw45BSvtk8swoOllX3Ow-LiJzYmzSO2q8sdZYfc.jpg" alt="Image 2"></div>
+            <div class="box"><img src="https://storage.googleapis.com/a1aa/image/jWW5m-xPE4tHWWiRhAB5P69bxHhfvlljVPTlaOL1MVE.jpg" alt="Image 3"></div>
+            <div class="box"><img src="https://storage.googleapis.com/a1aa/image/FZt3uw2L3kxzd9pAu0gituOFyP7kECT33-nzp_AscAg.jpg" alt="Image 4"></div>
+            <div class="box"><img src="https://storage.googleapis.com/a1aa/image/keOqjw45BSvtk8swoOllX3Ow-LiJzYmzSO2q8sdZYfc.jpg" alt="Image 5"></div>
         </div>
     </div>
-    
+
     <script>
-        const imageUrls = [
-            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
-            "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
-            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg",
-            "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg",
-            "https://images.pexels.com/photos/346529/pexels-photo-346529.jpeg"
-        ];
-        
-        function createCarousel(id) {
-            const carousel = document.getElementById(id);
-            imageUrls.forEach(url => {
-                const img = document.createElement("img");
-                img.src = url;
-                carousel.appendChild(img);
-            });
+        const carousel = document.getElementById('carousel');
+        const boxes = carousel.children;
+        const numBoxes = boxes.length;
+        let currentIndex = 0;
+
+        // Function to move to the next set of images
+        function moveToNextImages() {
+            currentIndex = (currentIndex + 1) % numBoxes; // Loop back to the first image
+            const offset = -currentIndex * (boxes[0].clientWidth + 10); // Calculate offset
+            carousel.style.transform = `translateX(${offset}px)`; // Move the carousel
         }
-        
-        function startCarousel(carouselId, reverse = false) {
-            const carousel = document.getElementById(carouselId);
-            let index = 0;
-            const images = carousel.children;
-            
-            function slide() {
-                index = reverse ? (index - 1 + images.length) % images.length : (index + 1) % images.length;
-                const offset = -index * 100;
-                carousel.style.transform = `translateX(${offset}%)`;
-            }
-            
-            setInterval(slide, 3000);
-        }
-        
-        for (let i = 1; i <= 9; i++) {
-            createCarousel(`carousel${i}`);
-            startCarousel(`carousel${i}`, i % 2 === 0);
-        }
+
+        // Set interval for automatic movement
+        setInterval(moveToNextImages, 3000); // Change images every 3 seconds
     </script>
 </body>
 </html>

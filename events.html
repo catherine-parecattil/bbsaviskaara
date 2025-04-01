@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Events 2025</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #000;
+        color: white;
+      }
+      .active-btn {
+        background-color: white;
+        color: black;
+      }
+
+      @font-face {
+            font-family: 'KyivTypeSansBlack';
+            src: url('fonts/Pricedown Bl.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        h1 {
+            font-family: 'KyivTypeSansBlack', sans-serif;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="relative w-full h-[70vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('your-image-url.jpg');">
+      <h1 class="text-center text-[8vw] font-bold leading-none text-[rgb(235,230,208)]">
+        Events <br /><span>2025</span>
+      </h1>
+    </section>
+
+    <!-- Content Wrapper -->
+    <div class="container mx-auto px-4 py-8">
+      <!-- Filtering Buttons -->
+      <div class="flex flex-wrap justify-center mt-8 gap-4">
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white active-btn" data-category="all">All</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="ss">Skill Sphere</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="tech">Technical</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="techxp">Tech Expo</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="legends">Legends Arena</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="la">Leisure Activity</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="tt">Talent Time</button>
+      </div>
+
+      <!-- Event Cards Container with a 40px gap; 5 cards per row on md screens -->
+      <div id="eventContainer" class="grid grid-cols-1 md:grid-cols-5 gap-[40px] p-8">
+        <!-- Skill Sphere -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="ss">
+          <img src="assets/mysticquest.png" alt="skill sphere" class="w-full h-full object-cover" />
+          <!-- Overlay rectangle positioned 10% above the bottom -->
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Fast Track IoT With ESP 32</h2>
+            <p class="text-xs md:text-sm text-gray-300">Skill Sphere</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <!-- Technical Event Cards -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="tech survival" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Tech Survival</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="nerd script" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Nerd Script</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="ctf" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">CTF</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="treasure hunt" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Treasure Hunt</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <!-- Additional Technical Event Cards -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="web hackathon" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Web Hackathon</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="tech triathlon" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Tech Triathlon</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="techingo" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">TechinGo</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tech">
+          <img src="assets/mysticquest.png" alt="ui/ux design" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">UI/UX Design</h2>
+            <p class="text-xs md:text-sm text-gray-300">Technical Event</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <!-- Tech Expo -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="techxp">
+          <img src="assets/mysticquest.png" alt="tech expo" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">TechXpo</h2>
+            <p class="text-xs md:text-sm text-gray-300">Tech Expo</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <!-- Legends Arena -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="legends">
+          <img src="assets/mysticquest.png" alt="pes" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">PES Tournament</h2>
+            <p class="text-xs md:text-sm text-gray-300">Legends Arena</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="legends">
+          <img src="assets/mysticquest.png" alt="squid game" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Squid Game</h2>
+            <p class="text-xs md:text-sm text-gray-300">Legends Arena</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="legends">
+          <img src="assets/mysticquest.png" alt="FC 25 Tournament" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">FC 25 Tournament</h2>
+            <p class="text-xs md:text-sm text-gray-300">Legends Arena</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="legends">
+          <img src="assets/mysticquest.png" alt="xonotic" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Xonotic</h2>
+            <p class="text-xs md:text-sm text-gray-300">Legends Arena</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="legends">
+          <img src="assets/mysticquest.png" alt="velocity x automation" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Velocity X Automation</h2>
+            <p class="text-xs md:text-sm text-gray-300">Legends Arena</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <!-- Leisure Activity -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="la">
+          <img src="assets/mysticquest.png" alt="lyp-sink battle" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Lyp-Sink Battle</h2>
+            <p class="text-xs md:text-sm text-gray-300">Leisure Activity</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="la">
+          <img src="assets/mysticquest.png" alt="game room" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Game Room</h2>
+            <p class="text-xs md:text-sm text-gray-300">Leisure Activity</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="la">
+          <img src="assets/mysticquest.png" alt="stand-up competition" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Stand-Up Competition</h2>
+            <p class="text-xs md:text-sm text-gray-300">Leisure Activity</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="la">
+          <img src="assets/mysticquest.png" alt="carroms" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Carroms</h2>
+            <p class="text-xs md:text-sm text-gray-300">Leisure Activity</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="la">
+          <img src="assets/mysticquest.png" alt="impression challenge" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Impression Challenge</h2>
+            <p class="text-xs md:text-sm text-gray-300">Leisure Activity</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+<!-- Talent Time -->
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tt">
+          <img src="assets/mysticquest.png" alt="impression challenge" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Open Mic</h2>
+            <p class="text-xs md:text-sm text-gray-300">Talent Time</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+        <div class="event-card relative group overflow-hidden h-[400px]" data-category="tt">
+          <img src="assets/mysticquest.png" alt="impression challenge" class="w-full h-full object-cover" />
+          <div class="absolute bottom-[10%] left-0 w-full h-[30%] bg-black bg-opacity-80 p-4 transition-all duration-300 group-hover:bg-opacity-50">
+            <h2 class="text-lg md:text-xl font-bold mb-1" style="color: rgb(235,230,208);">Dance</h2>
+            <p class="text-xs md:text-sm text-gray-300">Talent Time</p>
+            <img alt="arrow" src="https://ragam.co.in/images/assets/cardArrow.svg" width="20" height="20" class="absolute top-2 right-2 transform transition-transform group-hover:scale-110" loading="lazy" style="color: transparent;">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtering Script -->
+    <!-- Filtering Script -->
+<script>
+  const buttons = document.querySelectorAll(".filter-btn");
+  const eventCards = document.querySelectorAll(".event-card");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((btn) => btn.classList.remove("active-btn"));
+      button.classList.add("active-btn");
+
+      const category = button.getAttribute("data-category");
+      eventCards.forEach((card) => {
+        card.style.display = (category === "all" || card.getAttribute("data-category") === category)
+          ? "block"
+          : "none";
+      });
+    });
+  });
+
+  // Auto-filter based on the URL query parameter
+  window.addEventListener("DOMContentLoaded", function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterParam = urlParams.get('filter');
+    if (filterParam) {
+      // Simulate clicking the filter button that matches the query param.
+      const filterButton = document.querySelector(`.filter-btn[data-category="${filterParam}"]`);
+      if (filterButton) {
+        filterButton.click();
+      }
+    }
+  });
+</script>
+
+
+  </body>
+</html>

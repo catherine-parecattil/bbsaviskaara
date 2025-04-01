@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Brightness Effect</title>
+    <style>
+        body {
+            background: black;
+            color: #433535;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            height: 200vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quote-container {
+            max-width: 900px;
+            margin: auto;
+            font-size: 2rem;
+            line-height: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .quote-letter {
+            color: #1a1a1a;
+            display: inline-block;
+            transition: color 0.05s linear;
+        }
+    </style>
+</head>
+<body>
+    <section class="quote-container" id="quote-container">
+        THE MOST EXCITING ATTRACTIONS ARE BETWEEN OPPOSITES THAT NEVER MEET. PEOPLE THINK THEY’VE CONNECTED THROUGH ATTRACTION, BUT FOUND SOMEONE TO FORGET THEMSELVES. THE LESS IMPORTANT A MEETING, THE MORE YOU WANT IT.
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const quoteContainer = document.getElementById("quote-container");
+            let letters = quoteContainer.innerText.split("").map(letter =>
+                letter === " " ? "&nbsp;" : `<span class='quote-letter'>${letter}</span>`
+            ).join('');
+            quoteContainer.innerHTML = letters;
+
+            const letterElements = document.querySelectorAll(".quote-letter");
+            let lastScrollTop = 0;
+            let visibleLetters = 0;
+            let delay = 10;
+            let fadeDelay = 10; // Changed from 0 to 10 to make fade-out smoother
+
+            window.addEventListener("scroll", () => {
+                let scrollTop = window.scrollY || document.documentElement.scrollTop;
+                let scrollingDown = scrollTop > lastScrollTop;
+                lastScrollTop = scrollTop;
+
+                if (scrollingDown) {
+                    if (visibleLetters < letterElements.length) {
+                        let start = visibleLetters;
+                        visibleLetters = Math.min(visibleLetters + 5, letterElements.length);
+                        for (let i = start; i < visibleLetters; i++) {
+                            setTimeout(() => {
+                                letterElements[i].style.color = "rgb(255,255,255)";
+                            }, (i - start) * delay);
+                        }
+                    }
+                } else {
+                    if (visibleLetters > 0) {
+                        let end = visibleLetters;
+                        visibleLetters = Math.max(visibleLetters - 5, 0);
+                        for (let i = end - 1; i >= visibleLetters; i--) {
+                            setTimeout(() => {
+                                letterElements[i].style.color = "rgb(26,26,26)";
+                            }, (end - 1 - i) * fadeDelay);
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
