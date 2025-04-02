@@ -29,134 +29,131 @@ html, body {
     padding: 1.25rem;
 }
 
-/* HERO / LANDING SECTION */
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-}
-
-.hero-bg, .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-}
-
-.hero-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-}
-
-.overlay-title {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
+/* "SAVISHKAARA 2025" Title *//* "SAVISHKAARA 2025" Title */
 .hero-title {
-    font-size: 7rem;
+    font-size: 9rem;  /* Increased from 7rem */
     font-weight: 700;
     text-transform: uppercase;
-    line-height: 1;
-    margin: 0;
     color: #d4d0d0;
-    animation: fadeIn 0.5s ease-in-out;
     font-family: 'Pricedown', sans-serif;
-    position: relative;
-    display: inline-block;
-    -webkit-text-stroke: 4px #000; 
+    -webkit-text-stroke: 5px #000;  /* Increased stroke */
     text-shadow: 
-        -4px -4px 0 #000, 
-         4px -4px 0 #000, 
-        -4px  4px 0 #000, 
-         4px  4px 0 #000,
-         0px  0px 15px rgba(0, 0, 0, 1);
+        -5px -5px 0 #000, 
+         5px -5px 0 #000, 
+        -5px  5px 0 #000, 
+         5px  5px 0 #000,
+         0px  0px 20px rgba(0, 0, 0, 1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* "2025" Subtitle */
 .hero-subtitle {
     font-family: 'rage', sans-serif;
     font-size: 5rem;
     font-weight: 700;
     color: black;              
     -webkit-text-stroke: 0.1px rgb(232, 228, 228);
-    position: absolute;
-    top: 100%;                  
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 10px;
     text-align: center;
 }
 
-/* Responsive Design */
+/* Background Image - Desktop */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('assets/bg.jpg') no-repeat center;
+    background-size: cover;
+    background-attachment: fixed; /* Parallax effect on desktop */
+}
+
+/* Tablet Adjustments */
+@media (max-width: 768px) {
+    .hero-bg {
+        background-attachment: scroll;
+        background-position: center;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+    .hero-bg {
+        background-size: cover;
+        background-position: center top; /* Ensures the title area is visible */
+    }
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* Text Container */
+.hero-text-container {
+    position: absolute;
+    z-index: 3;
+}
+
+
+/* Text Container */
+.hero-text-container {
+    position: absolute;
+    z-index: 3;
+}
+
+
+/* "APRIL 10,11" (No Change) */
+.hero-tile {
+    font-size: 4rem; 
+    font-weight: 700; 
+    color: #d4d0d0; 
+    margin-top: 10px;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 4px black; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Fixes */
 @media (max-width: 1024px) {
     .hero-title {
-        font-size: 5rem;
-        -webkit-text-stroke: 3px #000;
-        text-shadow: 
-            -3px -3px 0 #000, 
-             3px -3px 0 #000, 
-            -3px  3px 0 #000, 
-             3px  3px 0 #000,
-             0px  0px 10px rgba(0, 0, 0, 1);
+        font-size: 6.5rem;  /* Slightly smaller for tablets */
+        -webkit-text-stroke: 4px #000;
     }
     .hero-subtitle {
-        font-size: 3.5rem;
+        font-size: 4rem;
+        top: 8px;
     }
 }
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 4rem;
-        -webkit-text-stroke: 2px #000;
-        text-shadow: 
-            -2px -2px 0 #000, 
-             2px -2px 0 #000, 
-            -2px  2px 0 #000, 
-             2px  2px 0 #000,
-             0px  0px 8px rgba(0, 0, 0, 1);
+        font-size: 6.5rem;  /* Adjusted for mobile */
+        -webkit-text-stroke: 3px #000;
     }
     .hero-subtitle {
-        font-size: 2rem;
+        font-size: 3rem;
+        top: 6px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 3rem;
-        -webkit-text-stroke: 1px #000;
-        text-shadow: 
-            -1px -1px 0 #000, 
-             1px -1px 0 #000, 
-            -1px  1px 0 #000, 
-             1px  1px 0 #000,
-             0px  0px 5px rgba(0, 0, 0, 1);
+        font-size: 5.5rem;  /* Increased for small phones */
+        -webkit-text-stroke: 2px #000;
     }
     .hero-subtitle {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        top: 5px;
     }
 }
 
 
-.hero-tile {
-    font-size: 4rem; 
-    font-weight: 700; 
-    color: #d4d0d0; 
-    margin: 0.5rem 1rem 0 0; 
-    letter-spacing: 1px;
-    -webkit-text-stroke: 4px black; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
 
 /* Menu Button (Hamburger Icon) */
 .menu-button {
@@ -277,11 +274,6 @@ html, body {
          0px  0px 15px rgba(0, 0, 0, 1);
 }
 
-.savishkaara-section h2 {
-    font-size: 1rem;
-    color: #333;
-}
-
 .savishkaara-section p {
     font-size: 2rem;
     line-height: 1.6;
@@ -291,6 +283,26 @@ html, body {
     font-weight: 200;
     letter-spacing: 2px;
 }
+
+/* Responsive Optimization */
+@media (max-width: 768px) {
+    .savishkaara-section h1 {
+        font-size: 2.5rem; /* Reduce heading size for tablets */
+    }
+    .savishkaara-section p {
+        font-size: 1.5rem; /* Reduce paragraph size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .savishkaara-section h1 {
+        font-size: 2rem; /* Reduce heading size for phones */
+    }
+    .savishkaara-section p {
+        font-size: 1.2rem; /* Reduce paragraph size for phones */
+    }
+}
+
 
 /*----------------------------------------------------
 =             LOGO                    =
@@ -309,6 +321,7 @@ html, body {
 /*----------------------------------------------------
 =              CARDS & CAROUSEL                    =
 ====================================================*/
+/* Grid Section */
 .grid-section {
     width: 100%;
     max-width: 800px;
@@ -420,6 +433,27 @@ html, body {
     opacity: 0.8;
     transform: scale(1.1);
     z-index: 8;
+}
+
+/* Mobile Optimization - For devices up to 480px */
+/* Mobile Optimization - For devices up to 480px */
+@media (max-width: 480px) {
+    /* Adjust carousel container height */
+    .carousel-container {
+        height: 400px;
+    }
+    /* Shift the cards-wrapper a bit to the left */
+    .cards-wrapper {
+        left: 25%;  /* Adjusted from 50% to shift left */
+        bottom: 10%;
+        transform: translateX(-50%);
+    }
+    /* Reduce card size for better fit */
+    .card {
+        width: 200px;
+        height: 270px;
+        padding: 10px;
+    }
 }
 
 /*----------------------------------------------------
