@@ -9,10 +9,10 @@
     <style>
       body {
         background-color: #000;
-        color: white;
+        color: rgb(235,230,208);
       }
       .active-btn {
-        background-color: white;
+        background-color: rgb(235,230,208);
         color: black;
       }
 
@@ -21,32 +21,84 @@
             src: url('fonts/Pricedown Bl.otf') format('opentype');
             font-weight: 700;
             font-style: normal;
+            
         }
 
         h1 {
             font-family: 'KyivTypeSansBlack', sans-serif;
+                          /* WebKit Text Stroke */
+              -webkit-text-stroke: 4px #000; /* Stronger black stroke */
+
+          /* Alternative for browsers without text-stroke */
+          text-shadow: 
+              -4px -4px 0 #000, 
+              4px -4px 0 #000, 
+              -4px  4px 0 #000, 
+              4px  4px 0 #000,
+              0px  0px 15px rgba(0, 0, 0, 1); /* Glow effect */
         }
+        .rounded-button {
+    background-color: #553b17; /* Green background */
+    color: rgb(235,230,208); /* White text */
+    border: none;
+    padding: 15px 32px; /* Padding for button */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rounded-button:hover {
+    background-color: #581d19; /* Darker green on hover */
+}
+
     </style>
   </head>
   <body>
     <!-- Hero Section -->
-    <section class="relative w-full h-[70vh] bg-cover bg-center flex items-center justify-center" style="background-image: url('your-image-url.jpg');">
-      <h1 class="text-center text-[8vw] font-bold leading-none text-[rgb(235,230,208)]">
-        Events <br /><span>2025</span>
-      </h1>
-    </section>
+     <!-- Background Image -->
+  <div class="hero-bg absolute inset-0" style="background-image: url('assets/bg2.png'); background-size: cover; background-position: center;"></div>
+  <!-- Optional Overlay (to darken the image) -->
+  <div class="hero-overlay absolute inset-0 bg-black opacity-50"></div>
+  <!-- Overlay Title -->
+  <section class="relative w-full h-[70vh] bg-cover bg-center flex flex-col items-center justify-center" style="background-image: url('your-image-url.jpg');">
+    <h1 class="text-center text-[8vw] font-bold leading-none text-[rgb(235,230,208)]">
+      Events <br /><span>2025</span>
+    </h1>
+    <a href="javascript:history.back()" class="absolute top-4 left-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
+        <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/>
+      </svg>
+    </a>
+    
+    
+
+  </section>
+  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
 
     <!-- Content Wrapper -->
     <div class="container mx-auto px-4 py-8">
       <!-- Filtering Buttons -->
       <div class="flex flex-wrap justify-center mt-8 gap-4">
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white active-btn" data-category="all">All</button>
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="ss">Skill Sphere</button>
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="tech">Technical</button>
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="techxp">Tech Expo</button>
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="legends">Legends Arena</button>
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="la">Leisure Activity</button>
-        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="tt">Talent Time</button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white active-btn" data-category="all"><b>ALL</b></button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="ss"><b>INCEPTION OF SYMPO</b> </button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="tech"><b>TECHNICAL EVENTS</b></button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="techxp"><b>TECHNICAL EXPO</b></button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="legends"><b>NON TECHNICAL EVENTS</b></button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="la"><b>LEISURE ACTIVITY</b></button>
+        <button class="filter-btn px-3 py-1 text-sm rounded-full border border-white" data-category="tt"><b>TALENT TIME</b></button>
       </div>
 
       <!-- Event Cards Container with a 40px gap; 5 cards per row on md screens -->
