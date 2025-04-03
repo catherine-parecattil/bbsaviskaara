@@ -321,34 +321,14 @@ html, body {
 /*----------------------------------------------------
 =              CARDS & CAROUSEL                    =
 ====================================================*/
-/* Grid Section */
-.grid-section {
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-}
-
-.grid-section > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.grid-section .bg-red { background-color: #69491C; }
-.grid-section .logo img { height: 80px; }
-
-/* Carousel Section */
 .carousel-section {
     position: relative;
     width: 100%;
     height: 100vh;
-}
-
-.carousel-container {
+    overflow: hidden;
+  }
+  
+  .carousel-container {
     position: absolute;
     top: 52%;
     left: 50%;
@@ -356,103 +336,187 @@ html, body {
     width: 95vw;
     max-width: 1200px;
     height: 600px;
-}
-
-.cards-wrapper {
+  }
+  
+  .cards-wrapper {
     position: absolute;
-    left: 40%;
+    left: 50%;
     bottom: 38%;
     transform: translateX(-50%);
     display: flex;
-    width: max-content;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: auto;
-}
-
-.card {
-    width: 300px;
-    height: 400px;
+    perspective: 1000px;
+  }
+  
+  .card {
+    width: 275px;
+    height: 375px;
     border-radius: 12px;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0;
     position: absolute;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: all 0.5s ease;
     cursor: pointer;
     border: 2px solid #69491C;
     box-shadow: 0 8px 16px #69491C;
-    color: #69491C;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 15px;
-    opacity: 0.6;
     z-index: 1;
-}
-
-.card h2 {
-    font-size: 28px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.card p {
+    transform-style: preserve-3d;
+  }
+  
+  .card p {
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.controls {
+  }
+  
+  .controls {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-}
-
-.arrow {
-    background: none;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+  }
+  
+  .arrow {
+    background: rgba(0, 0, 0, 0.5);
     border: none;
     color: white;
     font-size: 2rem;
     cursor: pointer;
-    margin: 0 10px;
-    transition: transform 0.3s;
-}
-
-.arrow:hover {
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: transform 0.3s, background 0.3s;
+    z-index: 20;
+  }
+  
+  .arrow:hover {
     transform: scale(1.1);
-}
-
-.card.active {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  .arrow:first-child {
+    margin-left: 20px;
+  }
+  
+  .arrow:last-child {
+    margin-right: 20px;
+  }
+  
+  /* Active card */
+  .card.active {
     opacity: 1;
-    transform: scale(1.3);
+    transform: translateX(0) scale(1.2);
     z-index: 10;
     box-shadow: 0 12px 24px #69491C;
-}
-
-.card.adjacent {
+  }
+  
+  /* Adjacent cards */
+  .card.prev,
+  .card.next {
     opacity: 0.8;
-    transform: scale(1.1);
     z-index: 8;
-}
-
-/* Mobile Optimization - For devices up to 480px */
-/* Mobile Optimization - For devices up to 480px */
-@media (max-width: 480px) {
-    /* Adjust carousel container height */
+  }
+  
+  .card.prev {
+    transform: translateX(-60%) scale(0.9);
+  }
+  
+  .card.next {
+    transform: translateX(60%) scale(0.9);
+  }
+  
+  /* Far cards */
+  .card.far-prev,
+  .card.far-next {
+    opacity: 0.6;
+    z-index: 6;
+  }
+  
+  .card.far-prev {
+    transform: translateX(-120%) scale(0.8);
+  }
+  
+  .card.far-next {
+    transform: translateX(120%) scale(0.8);
+  }
+  
+  /* Hidden cards */
+  .card.hidden {
+    opacity: 0;
+    z-index: 0;
+    transform: translateX(0) scale(0.8);
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
     .carousel-container {
-        height: 400px;
+      height: 400px;
     }
-    /* Shift the cards-wrapper a bit to the left */
+  
     .cards-wrapper {
-        left: 25%;  /* Adjusted from 50% to shift left */
-        bottom: 10%;
-        transform: translateX(-50%);
+      height: 300px;
+      perspective: 500px;
     }
-    /* Reduce card size for better fit */
+  
     .card {
-        width: 200px;
-        height: 270px;
-        padding: 10px;
+      width: 200px;
+      height: 270px;
+    }
+  
+    .card.active {
+      transform: translateX(0) scale(1.1);
+    }
+  
+    .card.prev {
+      transform: translateX(-80%) scale(0.9);
+    }
+  
+    .card.next {
+      transform: translateX(80%) scale(0.9);
+    }
+  
+    .card.far-prev {
+      transform: translateX(-160%) scale(0.7);
+    }
+  
+    .card.far-next {
+      transform: translateX(160%) scale(0.7);
+    }
+  
+    .controls {
+      top: 60%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-container {
+      height: 400px;
+    }
+  
+    .cards-wrapper {
+      left: 50%;
+      bottom: 10%;
+    }
+  
+    .card {
+      width: 150px;
+      height: 210px;
+      padding: 10px;
+    }
+  
+    .card p {
+      font-size:12px;
     }
 }
 
@@ -562,7 +626,7 @@ html, body {
 
 .modal--information {
     margin-top: 20px;
-    text-align: left;
+    text-align: right;
 }
 
 .modal--information p,
