@@ -352,8 +352,8 @@ html, body {
   }
   
   .card {
-    width: 275px;
-    height: 375px;
+    width: 300px;
+    height: 400px;
     border-radius: 12px;
     background-size: cover;
     background-position: center;
@@ -890,4 +890,55 @@ h2, l2 {
     .contact-image img {
         max-height: 280px;
     }
+
+
+
+/*----------------------------------------------------
+=                   PRELOADER                        =
+====================================================*/
+
+/* ===== ENHANCED PRELOADER ===== */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  #preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  #preloader-logo {
+    width: 70vw;        /* Much larger on mobile */
+    height: 70vw;       /* Square aspect ratio */
+    max-width: 250px;   /* Maximum size for very small phones */
+    max-height: 250px;
+    object-fit: contain;
+    transform: scale(0.9);
+    opacity: 0.95;
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.4, 1);
+  }
+  
+  /* Desktop sizing */
+  @media (min-width: 768px) {
+    #preloader-logo {
+      width: 300px;
+      height: 300px;
+      max-width: none;
+      max-height: none;
+    }
+  }
+  
+  /* Hide menu button during preload */
+  body.preload-active .menu-button {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
 }

@@ -18,6 +18,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+
+  <!-- Preloader -->
+<!-- Clean Preloader -->
+<div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black transition-opacity duration-500">
+  <img src="assets/preloader.gif" alt="Loading" 
+       id="preloader-logo"
+       class="w-[150px] h-[150px] md:w-[200px] md:h-[200px] object-contain 
+              transition-all duration-1000 ease-out transform origin-center">
+</div>
 <!-- MENU BUTTON (Hamburger Icon) -->
 <button class="menu-button" onclick="toggleMenu()">
   <span></span>
@@ -119,7 +128,7 @@
                     <img src="assets/2024/iedcbgremoved-whiteText.png" alt="IEDC" class="max-w-[60px] transition duration-300 hover:scale-105"/>
                   </div>
                   <div class="logo-item shrink-0">
-                    <img src="assets/2024/KMRL-logo.PNG" alt="KMRL" class="max-w-[70px] transition duration-300 hover:scale-105"/>
+                    <img src="assets/2024/KMRL-logo.PNG" alt="KMRL" class="max-w-[120px] transition duration-300 hover:scale-105"/>
                   </div>
                   <div class="logo-item shrink-0">
                     <img src="assets/2024/savishkaara.PNG" alt="Savishkaara" class="max-w-[120px] transition duration-300 hover:scale-105"/>

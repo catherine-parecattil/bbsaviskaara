@@ -195,3 +195,67 @@ document.addEventListener('DOMContentLoaded', function() {
           window.location.href = 'mailto:ouremail@gmail.com';
       }
       
+
+      /*----------------------------------------------------
+=                  PRELOADER                        =
+====================================================*/
+
+// preloader
+// Enhanced Preloader with Zoom Effect
+document.addEventListener('DOMContentLoaded', function() {
+  const preloader = document.getElementById('preloader');
+  const logo = document.getElementById('preloader-logo');
+  const menuButton = document.querySelector('.menu-button');
+  
+  // Initial state
+  menuButton.style.opacity = '0';
+  menuButton.style.pointerEvents = 'none';
+  
+  // Animation timeline
+  setTimeout(() => {
+    // Phase 1: Initial appearance (0.5s)
+    logo.style.transform = 'scale(0.9)';
+    logo.style.opacity = '1';
+    
+    // Phase 2: Zoom-in after delay (1.5s)
+    setTimeout(() => {
+      logo.style.transform = 'scale(1.2)';
+      logo.style.transition = 'transform 1.2s cubic-bezier(0.2, 0.8, 0.4, 1)';
+    }, 1500);
+    
+  }, 100);
+
+  // Hide after minimum 3.5 seconds
+  const minDisplayTime = 3500;
+  const startTime = Date.now();
+  
+  window.addEventListener('load', function() {
+    const elapsed = Date.now() - startTime;
+    const remaining = Math.max(minDisplayTime - elapsed, 0);
+    
+    setTimeout(() => {
+      // Final zoom before disappearing
+      logo.style.transform = 'scale(1.5)';
+      logo.style.opacity = '0';
+      logo.style.transition = 'all 0.8s ease-out';
+      
+      // Hide everything
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        document.body.classList.remove('preload-active');
+        menuButton.style.opacity = '1';
+        menuButton.style.pointerEvents = 'auto';
+      }, 800);
+    }, remaining);
+  });
+
+  // Safety timeout (6 seconds max)
+  setTimeout(() => {
+    if (!preloader.classList.contains('hidden')) {
+      preloader.classList.add('hidden');
+      document.body.classList.remove('preload-active');
+      menuButton.style.opacity = '1';
+      menuButton.style.pointerEvents = 'auto';
+    }
+  }, 6000);
+});
