@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.3/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-black text-white font-sans min-h-screen flex items-center justify-center p-4">
+    <a href="javascript:history.back()" class="absolute top-4 left-4">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
+          <path d="M19 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H19v-2z"/>
+        </svg>
+      </a>
+    <div class="bg-black p-6 rounded-lg w-full flex flex-col lg:flex-row gap-8">
+        <!-- Left Section (Poster with Slideshow) -->
+       <div class="w-full lg:w-1/2 flex flex-col items-center relative" x-data="{ 
+            current: 0, 
+            images: [
+                'D:/saviskaarawebsite/assets/comp_poster/comp_poster/NERDSCRIPT/1-min.png',
+                'D:/saviskaarawebsite/assets/comp_poster/comp_poster/NERDSCRIPT/1-min.png',
+                'D:/saviskaarawebsite/assets/comp_poster/comp_poster/NERDSCRIPT/1-min.png'
+            ], 
+            interval: null,
+            autoSlide() { 
+                this.interval = setInterval(() => { 
+                    this.current = (this.current + 1) % this.images.length;
+                }, 3000);
+            },
+            pauseSlide() {
+                clearInterval(this.interval);
+            },
+            resumeSlide() {
+                this.autoSlide();
+            }
+        }" x-init="autoSlide()">
+            <div class="relative" @touchstart="pauseSlide()" @touchend="resumeSlide()" @mouseenter="pauseSlide()" @mouseleave="resumeSlide()">
+                <img :src="images[current]" class="max-w-full h-auto rounded-lg" width="500" height="500"/>
+                
+                <!-- Auto Slide Dots (Centered) -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <template x-for="(image, index) in images" :key="index">
+                        <div :class="{'bg-white': current === index, 'bg-gray-500': current !== index}"
+                             class="w-3 h-3 rounded-full"></div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Right Section (About the Event) -->
+        <div class="w-full lg:w-1/2">
+            <div class="p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-info-circle text-xl mr-2"></i>
+                    <h2 class="text-xl font-semibold">About the Event</h2>
+                </div>
+                <!--<p class="mb-4">“The most honest form of filmmaking is to make a film for yourself.” – Peter Jackson.</p>-->
+                <p class="mb-4">*NerdScript 3.0* is a premier coding competition that challenges participants with algorithmic problems, code optimization, and debugging tasks across three intense 1-hour rounds. With increasing difficulty, it fosters learning, innovation, and excellence in programming. A tiebreaker round will determine the winner if needed.</p>
+                <p class="mb-4">Contact: 9207335220</p>
+                <p class="mb-4">Entry Fee: 100/-(per head)</p>
+                <p class="mb-4">*No Entry Fee For Computer Science Department Student</p>
+                <div class="border-t border-white my-4"></div>
+               <div class="flex justify-center mt-8">
+  <a href="https://docs.google.com/forms/d/1uBsbMlj8LwHqoLCuWBptvRv0ZUBvUJHya-fmQn8Jg2M/edit" target="_blank" rel="noopener noreferrer">
+    <button class="bg-green-600 hover:bg-green-700 transition text-white py-2 px-6 rounded-full">
+      Register Now
+    </button>
+  </a>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

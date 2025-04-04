@@ -67,7 +67,7 @@ html, body {
     inset: 0;
     background: url('assets/bg.jpg') no-repeat center;
     background-size: cover;
-    background-attachment: fixed; /* Parallax effect on desktop */
+    /* background-attachment: fixed; Parallax effect on desktop */
 }
 
 /* Tablet Adjustments */
@@ -533,149 +533,130 @@ html, body {
 .hidden { display: none; }
 
 /*----------------------------------------------------
-=                   CONTACT                        =
+=                   CONTACT SECTION                 =
 ====================================================*/
-.custom-footer {
-    position: relative;
-    z-index: 20;
-    padding: 2rem;
-    border-top: 1px solid #333;
-    text-align: center;
-    color: #aaa;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-
-.footer-links a {
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--accent-color);
-}
-
-/* Contact Section */
-.custom-footer {
-    position: relative;
-    z-index: 20;
-    padding: 2rem;
-    border-top: 1px solid #333;
-    text-align: center;
-    color: #aaa;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 0.5rem;
-}
-
-.footer-links a {
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--accent-color);
-}
-
-/* Contact Section */
 .contact {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
     width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .contact .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0;
 }
 
-/* Desktop Layout */
-.contact--lockup {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 40px;
+/* Centered Contact Card */
+.contact-card {
+    background: #111;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
-.contact-content {
-    flex: 1;
-}
-
+/* Image Styling */
 .background-img {
     width: 100%;
-    max-width: 400px;
+    max-width: 360px;
     height: auto;
     border-radius: 10px;
     cursor: pointer;
-    margin: 0;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
 }
 
+.background-img:hover {
+    transform: scale(1.02);
+}
+
+/* Contact Info Styling */
 .modal--information {
-    margin-top: 20px;
-    text-align: right;
+    text-align: center;
+    padding: 15px;
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .modal--information p,
 .modal--information a {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    font-weight: 500;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
 }
 
-/* Mobile Layout */
+.modal--information a:hover {
+    color: #d4a76a;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
+    #faq {
+        padding-top: 20px;
+        width: 100%;
+    }
+
     .contact {
-        padding: 20px 15px;
+        padding: 25px 15px;
     }
-    
-    .contact--lockup {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    
+
     .section-title h1 {
-        font-size: 2.5rem !important;
-        margin-top: -50px !important;
+        font-size: 2rem;
         text-align: center;
+        border-bottom: 3px solid #69491C;
     }
-    
+
+    .contact-card {
+        padding: 15px;
+        width: 95%;
+    }
+
     .background-img {
-        max-width: 100%;
+        max-width: 80%;
         margin: 0 auto;
     }
-    
+
     .modal--information {
-        text-align: center;
-        width: 100%;
-        padding: 0 10px;
+        width: 90%;
     }
-    
+
     .modal--information p,
     .modal--information a {
-        font-size: 1rem;
-        text-align: center;
+        font-size: 0.9rem;
     }
-    
-    .col-lg-6 {
-        width: 100% !important;
+}
+
+/* Smaller Mobile Devices */
+@media (max-width: 480px) {
+    .section-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .background-img {
+        max-width: 75%;
+    }
+
+    .modal--information {
+        width: 90%;
+    }
+
+    .modal--information p,
+    .modal--information a {
+        font-size: 0.85rem;
     }
 }
 /*====================================================
