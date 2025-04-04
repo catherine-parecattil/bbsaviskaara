@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Pricedown Custom';
+  src: url('https://savishkaara.in/assets/font/Pricedown_Bl.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 body {
     margin: 0;
     font-family: sans-serif;
@@ -16,7 +25,6 @@ body {
     width: 100%;
     z-index: 1000;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem;

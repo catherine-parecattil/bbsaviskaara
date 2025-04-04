@@ -535,6 +535,29 @@ html, body {
 /*----------------------------------------------------
 =                   CONTACT SECTION                 =
 ====================================================*/
+.custom-footer {
+    position: relative;
+    z-index: 20;
+    padding: 2rem;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #aaa;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--accent-color); }
 .contact {
     display: flex;
     justify-content: center;
